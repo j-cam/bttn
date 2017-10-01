@@ -1,0 +1,229 @@
+//
+%btn-base {
+	@include btn();
+}
+%btn-base--jumbo {
+	@include btn($size: jumbo);
+}
+.btn-base--jumbo {
+	@extend %btn-base--jumbo;
+}
+%btn-base--block {
+	@include btn($block: true);
+}
+
+//////////////////////////////////////////////////////////
+// 1. Primary Buttons ///////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-primary {
+	@include btn-primary();
+}
+
+%btn-primary--red {
+	@include btn-primary(red);
+}
+
+%btn-primary--blue {
+	@include btn-primary(blue);
+}
+%btn-primary--green {
+	@include btn-primary(green);
+}
+
+%btn-primary--gray-light {
+	@include btn-primary(gray-light);
+}
+
+%btn-primary--gray-light-green {
+	@include btn-primary(gray-light-green);
+}
+
+
+%btn-primary--reversed {
+	@include btn-primary(reversed);
+}
+
+%btn-primary--reversed-red-icon {
+	@include btn-primary(reversed);
+}
+//////////////////////////////////////////////////////////
+// 2. Jumbo Buttons /////////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-primary-jumbo {
+	@include btn-primary-jumbo();
+}
+%btn-primary-jumbo--red {
+	@include btn-primary-jumbo();
+}
+
+%btn-primary-jumbo--blue {
+	@include btn-primary-jumbo(blue);
+}
+%btn-primary-jumbo--green {
+	@include btn-primary-jumbo(green);
+}
+
+%btn-primary-jumbo--reversed {
+	@include btn-primary-jumbo(reversed);
+}
+//////////////////////////////////////////////////////////
+// 3. Double & Jumbo Double Buttons /////////////////////
+//  These requires a wrapper parent element of the same
+//  name but with "-wrap" added to it.
+//  Example:
+//  ```
+//      <div class="btn-jumbo-double-wrap">
+//         <a clas="btn-jumbo-double"></a>
+//         <a clas="btn-jumbo-double"></a>
+//     </div>
+//  ```
+//  ```
+//      <div class="btn-jumbo-double--reversed-wrap">
+//         <a clas="btn-jumbo-double--reversed"></a>
+//         <a clas="btn-jumbo-double--reversed"></a>
+//     </div>
+//  ```
+////////////////////////////////////////////////////////
+// Double
+%btn-double {
+	@include btn-double();
+}
+%btn-double--reversed {
+	@include btn-double(reversed);
+}
+//  Jumbo Double
+%btn-double-jumbo {
+	@include btn-double-jumbo();
+}
+%btn-double-jumbo--reversed {
+	@include btn-double-jumbo(reversed);
+}
+
+//////////////////////////////////////////////////////////
+// 3. Double Single & Jumbo Double Single Buttons ///////
+//  These require two immediate child elements of
+//  <em> or <span> or a combination of the two.
+//
+//  Examples:
+//  ```
+//      <a class="btn-double-single">
+//          <span></span><span></span>
+//      </a>
+//  ```
+//  ```
+//      <a class="btn-double-single">
+//          <em></em><span></span>
+//      </a>
+//  ```
+////////////////////////////////////////////////////////
+// Double Single
+%btn-double-single {
+	@include btn-double-single();
+}
+%btn-double-single--reversed {
+	@include btn-double-single(reversed);
+}
+// Jumbo Double Single
+%btn-double-single-jumbo {
+	@include btn-double-single-jumbo();
+}
+%btn-double-single-jumbo--reversed {
+	@include btn-double-single-jumbo(reversed);
+}
+
+
+//////////////////////////////////////////////////////////
+// 4. Stroke Buttons ////////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-stroke {
+	@include btn-stroke();
+}
+%btn-stroke--red {
+	@include btn-stroke(red);
+}
+%btn-stroke--blue {
+	@include btn-stroke(blue);
+}
+%btn-stroke--blue-red {
+	@include btn-stroke(blue-red);
+}
+%btn-stroke--green {
+	@include btn-stroke(green);
+}
+
+%btn-stroke--reversed {
+	@include btn-stroke(reversed);
+}
+//////////////////////////////////////////////////////////
+// 5. Stroke Micro Buttons //////////////////////////////
+////////////////////////////////////////////////////////
+%btn-stroke-micro {
+	@include btn-stroke-micro();
+}
+
+%btn-stroke-micro--red {
+	@include btn-stroke-micro(red);
+}
+
+%btn-stroke-micro--blue {
+	@include btn-stroke-micro(blue);
+}
+
+%btn-stroke-micro--green {
+	@include btn-stroke-micro(green);
+}
+
+%btn-stroke-micro--reversed {
+	@include btn-stroke-micro(reversed);
+}
+//////////////////////////////////////////////////////////
+// 6. Floating Buttons //////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-floating {
+	@include btn-floating();
+}
+
+%btn-floating--red {
+	@include btn-floating(red);
+}
+
+%btn-floating--blue {
+	@include btn-floating(blue);
+}
+
+%btn-floating--green {
+	@include btn-floating(green);
+}
+
+%btn-floating--white {
+	@include btn-floating(white);
+}
+// red text blue icon
+%btn-floating--red-blue {
+	@include btn-floating(red-blue);
+}
+// blue text red icon
+%btn-floating--blue-red {
+	@include btn-floating(blue-red);
+}
+// white text red icon
+%btn-floating--white-red {
+	@include btn-floating(white-red);
+}
+
+%btn-floating--reversed {
+	@include btn-floating(reversed);
+}
+
+
+%btn-tag--gray-light {
+	@include btn-tag(gray-light);
+}
+
+%btn-tag-filter--blue {
+	@include btn-tag($theme:blue, $type:filter);
+}
+
+%btn-title-hover {
+	@include btn-title-hover;
+}

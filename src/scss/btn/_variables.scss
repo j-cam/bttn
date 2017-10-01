@@ -1,0 +1,182 @@
+$site__breakpoints: (
+  screen_xxs_: (
+		min: 320px,
+		max: 374px,
+		device: iphone5,
+	),
+	screen_xs_: (
+		min: 375px,
+		max: 413px,
+		device: iphone6,
+
+	),
+	screen_sm_: (
+		min: 414px,
+		max: 767px,
+		device: iphone6plus,
+	),
+  screen_md_: (
+		min: 768px,
+		max: 959px,
+		device: tablet,
+	),
+  screen_lg_: (
+		min: 960px,
+		max: 1079px,
+		device: desktop,
+	),
+  screen_xl_: (
+		min: 1080px,
+		max: 1266px,
+	),
+  screen_xxl_: (
+		min: 1267px,
+		max: null,
+	),
+);
+// Colors
+// ======================================
+$blue:        #02263c;
+$blue-light:  #87a0af;
+$gray:        #5f6567;
+$gray-med:    #dadfe1;
+$gray-light:  #f0f2f3;
+$green:       #4abfad;
+$red:         #e53d46;
+$red-dark:    #c3343c;
+$body-bg:     $blue;
+
+$star-rating-width-1-4:  0.35em;
+$star-rating-width-1-2:  0.50em;
+$star-rating-width-3-4:  0.65em;
+$star-rating-width-full: 1em;
+
+
+// Graduated color maps for
+$map-stepped-color-red:(
+  1: ( bg: #ac2e34, bgHover:#ac2e34 ),
+  2: ( bg: #b73138, bgHover:#b73138 ),
+  3: ( bg: #c3343c, bgHover:#c3343c ),
+  4: ( bg: #ce373f, bgHover:#ce373f ),
+  5: ( bg: #d93a42, bgHover:#d93a42 ),
+  6: ( bg: #e53d46, bgHover:#e53d46 ),
+  7: ( bg: #ee3f49, bgHover:#ee3f49 ),
+);
+
+$map-stepped-color-red-8:(
+  1: ( bg: #ac2e34 ),
+  2: ( bg: #b73138 ),
+  3: ( bg: #c3343c ),
+  4: ( bg: #ce373f ),
+  5: ( bg: #c3343c ),
+  6: ( bg: #ce373f ),
+  7: ( bg: #d93a42 ),
+  8: ( bg: #e53d46 ),
+);
+
+$map-stepped-color-blue:(
+  1: ( bg: #02263c ),
+  2: ( bg: #0f3146 ),
+  3: ( bg: #1b3b4f ),
+  4: ( bg: #284659 ),
+);
+
+// Paths
+// ======================================
+$images-path:    "../img/";
+$images-path-temp:    "../img/temp/";
+$svg-path:       $images-path + "svg/";
+$svg-icons-path: $svg-path + "icons/";
+
+
+// Typography
+// ======================================
+$font-family-muli:     'Muli', sans-serif;
+$font-family-roboto:   'Roboto', sans-serif;
+
+$font-weight-xlight:    200;
+$font-weight-light:     300;
+$font-weight-regular:   400;
+$font-weight-medium:    500;
+$font-weight-semibold:  600;
+$font-weight-bold:      700;
+
+$font-size-base:        16px;
+$line-height-base:      1.44444444;
+
+
+/* Structure */
+$site-content-max-width-desktop: 1400px;
+// PSD @ 750px - (2*20px) [container gutters]
+$site-content-max-width-mobile:  710px;
+
+
+$grid-gutter-width:    60px;
+$grid-features-width:  27%;
+$grid-primary-width:   50%;
+$grid-secondary-width: 23%;
+
+// To avoid rounding errors where needed
+$width-1-3: 33.33333%;
+$width-2-3: 66.66667%;
+
+/* Forms */
+$form-group-margin-bottom:  20px;
+$input-bg:                  #fff;
+$input-border:              $blue;
+$input-border-radius:       0;
+$input-color:               $blue;
+$input-color-placeholder:   $blue;
+$selectric-main-color:      $blue; // Color used in border
+$selectric-secondary-color: $blue; // Color used in button
+$selectric-text-color:      $blue; // Color used in label
+$selectric-bg-color:        #fff; // Background color
+$selectric-btn-bg-color:    #fff; // Button background color
+$selectric-font-size:       rem(16px);
+
+
+// ======================================
+// Z-Indexes / Layers
+// Use the `layer()` function to
+// get the the values:
+// @example z-index: layer(modal)
+// ======================================
+$map-z-indexes: (
+  modal                       : 20,
+  overlay                     : 19,
+  desktop-logo                : 17,
+  drawer                      : 15,
+  masthead                    : 15,
+  nav-dropdown                : 15,
+);
+
+// Transitions
+$site-transition-duration: .3s;
+
+// Added to specifically target these
+// contexts where necessary.
+// breakpoints for iPhone 7/7plus are equal to 6/6plus also.
+$screen-iphone-6-min: 375px;
+$screen-iphone-6-plus-min: 414px;
+
+// Breakpoints (for Reference only)
+// ======================================
+// Extra small screen / phone
+// $screen-xs:                  480px !default;
+// $screen-xs-min:              $screen-xs !default;
+// $screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+// $screen-sm:                  768px !default;
+// $screen-sm-min:              $screen-sm !default;
+// $screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+// $screen-md:                  992px !default;
+// $screen-md-min:              $screen-md !default;
+// $screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+// $screen-lg:                  1200px !default;
+// $screen-lg-min:              $screen-lg !default;
+// $screen-lg-desktop:          $screen-lg-min !default;

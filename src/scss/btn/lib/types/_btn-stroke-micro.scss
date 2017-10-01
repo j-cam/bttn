@@ -1,0 +1,44 @@
+// Mixin defining a stroke button
+// Notes:
+// - All arguments default to variables set in buttons-settings.
+//
+// - Theme keys must be stored in the `$map-btn-themes-stroke` in
+//   `_buttons-themes.scss`
+//
+// - If passing individual arguments you must pass null as the first argument
+// - and use name arguments unless all arguments are passed [see underloaded example].
+//
+// Examples:
+// default:         btn-stroke()
+// theme:           btn-stroke(red)
+// overloaded:      btn-stroke(null, #000, #fff, #000)
+// oveunderloaded:  btn-stroke(null, $font-color: #000)
+
+@mixin btn-stroke-micro (
+		$theme:             null,
+		$font-color:        $btn-font-color-stroke,
+		$font-color-active: $btn-font-color-active-stroke,
+		$bg-color-active:   $btn-bg-color-active-stroke,
+		$size: micro,// pass micro through to btn base in btn stroke
+		$block: null
+	)
+
+{
+	// Check for theme and set args to those values
+	@if $theme {
+		$map: map-get($map-btn-themes-stroke-micro, $theme);
+		$font-color: map-get($map, font-color);
+		$font-color-active: map-get($map, font-color-active);
+		$bg-color-active: map-get($map, bg-color-active);
+	}
+	// pass $theme as null to ensure the use of this map
+	// in the event that it needs to break off from shared styles
+	@include btn-stroke (
+			null,
+			$font-color: $font-color,
+			$font-color-active: $font-color-active,
+			$bg-color-active: $bg-color-active,
+			$size: $size,
+			$block: $block
+		)
+}

@@ -1,0 +1,120 @@
+/**
+ * Breakpoints
+ * @type {[type]}
+ */
+// Set the $bp_[name] values in the variables file
+//--  Breakpoints
+$bp_xxs_min : map-deep-get($site__breakpoints, "screen_xxs_", "min");
+$bp_xxs_max : map-deep-get($site__breakpoints, "screen_xxs_", "max");
+
+$bp_xs_min : map-deep-get($site__breakpoints,  "screen_xs_",  "min");
+$bp_xs_max : map-deep-get($site__breakpoints,  "screen_xs_",  "max");
+
+$bp_sm_min : map-deep-get($site__breakpoints,  "screen_sm_",  "min");
+$bp_sm_max : map-deep-get($site__breakpoints,  "screen_sm_",  "max");
+
+$bp_md_min : map-deep-get($site__breakpoints,  "screen_md_",  "min");
+$bp_md_max : map-deep-get($site__breakpoints,  "screen_md_",  "max");
+
+$bp_lg_min : map-deep-get($site__breakpoints,  "screen_lg_",  "min");
+$bp_lg_max : map-deep-get($site__breakpoints,  "screen_lg_",  "max");
+
+$bp_xl_min : map-deep-get($site__breakpoints,  "screen_xl_",  "min");
+$bp_xl_max : map-deep-get($site__breakpoints,  "screen_xl_",  "max");
+
+$bp_xxl_min : map-deep-get($site__breakpoints, "screen_xxl_", "min");
+$bp_xxl_max : map-deep-get($site__breakpoints, "screen_xxl_", "max");
+
+// Declarations
+//
+$screen_xxs_min : 'min-width: #{$bp_xxs_min}';
+$screen_xxs_max : 'max-width: #{$bp_xxs_max}';
+
+$screen_xs_min  : 'min-width: #{$bp_xs_min}';
+$screen_xs_max  : 'max-width: #{$bp_xs_max}';
+
+$screen_sm_min  : 'min-width: #{$bp_sm_min}';
+$screen_sm_max  : 'max-width: #{$bp_sm_max}';
+
+$screen_md_min  : 'min-width: #{$bp_md_min}';
+$screen_md_max  : 'max-width: #{$bp_md_max}';
+
+$screen_lg_min  : 'min-width: #{$bp_lg_min}';
+$screen_lg_max  : 'max-width: #{$bp_lg_max}';
+
+$screen_xl_min  : 'min-width: #{$bp_xl_min}';
+$screen_xl_max  : 'max-width: #{$bp_xl_max}';
+
+$screen_xxl_min : 'min-width: #{$bp_xxl_min}';
+$screen_xxl_max : 'max-width: #{$bp_xxl_max}';
+
+
+// ============================================================================
+// #Breakpoint and Grid Variables
+// ============================================================================
+@mixin breakpoint_debugger($position: bottom) {
+	$font-size: 0.8em;
+  $bg-color: #000;
+	$padding: 0.5em 0.8em;
+	$z-index: 3000;
+
+	body {
+		&::before,
+    &::after {
+      position: fixed;
+			@if $position == top {
+        top: 0;
+      }
+      @else if $position == bottom {
+        bottom: 0;
+      }
+      display: block;
+      margin: 0 0;
+      text-align: center;
+      font-family: $sans;
+			font-size: $font-size;
+			padding: $padding;
+		}
+  }
+	// viewport dimensions
+  body::before {
+    z-index: $z-index + 1;
+    width: auto;
+    right: 0;
+		background-color: rgba(invert($bg-color), 0.8);
+    color: rgba($bg-color, 1);
+    content: attr(data-before);
+  }
+	// current media-query
+  body::after {
+		z-index: $z-index;
+		width: 100%;
+		left: 0;
+		right: 0;
+		background-color: rgba($bg-color,0.65);
+		color: rgba(invert($bg-color), 1);
+		content: "less than #{$bp_xxs_min} (below xxs) ";
+
+		@media ($screen_xxs_min) {
+		    content: "xxs: [#{$bp_xxs_min}, #{$bp_xxs_max}]";
+		}
+		@media ($screen_xs_min) {
+				content: "xs: [#{$bp_xs_min}, #{$bp_xs_max}]";
+		}
+		@media ($screen_sm_min) {
+				content: "sm: [#{$bp_sm_min}, #{$bp_sm_max}]";
+		}
+		@media ($screen_md_min) {
+		    content: "md: [#{$bp_md_min}, #{$bp_md_max}]";
+		}
+		@media ($screen_lg_min) {
+				content: "lg: [#{$bp_lg_min}, #{$bp_lg_max}]";
+		}
+		@media ($screen_xl_min) {
+		    content: "xl: [#{$bp_xl_min} to #{$bp_xl_max}]";
+		}
+		@media ($screen_xxl_min) {
+		    content: "xxl: Greater than #{$bp_xl_min}";
+		}
+   }
+} // end mixin debugger

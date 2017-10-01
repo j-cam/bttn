@@ -1,0 +1,13 @@
+// Add the apprpriate padding to buttons
+
+@mixin btn-size($size:null){
+	@if $size == jumbo {
+		padding: $btn-padding-jumbo;
+	}
+	@else if $size == micro {
+		padding: $btn-padding-micro;
+	}
+	@else {
+		padding: $btn-padding;
+	}
+}

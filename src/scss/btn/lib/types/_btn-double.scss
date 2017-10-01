@@ -1,0 +1,108 @@
+// Mixin defining a double button
+// Notes:
+//
+// - ALIAS OF btn-primary mixin with the exception of passing the
+//   the $double: true through to the btn-base mixin.
+//
+// - Shares themes with `$map-btn-themes-primary` because they
+//   are fundamentally the same group of styles.
+//
+// - All arguments default to variables set in buttons-settings which
+//   are also shared with btn-primary.
+//
+//
+// - The same call arguments apply to this mixin as the btn-primary mixin.
+//
+// Examples:
+// default:         btn-double() - red background white text
+// theme:           btn-double(red)
+// overloaded:      btn-double(null, #000, #fff, #fff, #000, #e53d46, #000)
+// underloaded:  btn-double(null, $font-color: #000)
+//
+//  !!*** Special Markup Requirements ***!!
+//  This requires a wrapper parent element of the same
+//  name but with "-wrap" added to it.
+//
+//  EXAMPLE MARKUP
+//  ```
+//      <div class="my-btn-class-wrap">
+//         <a clas="my-class"></a>
+//         <a clas="my-btn-class"></a>
+//     </div>
+//  ```
+//  SASS FOR EXAMPLE MARKUP
+//  ```
+//  .my-btn-class {
+//      @include btn-double();
+//  }
+//  ---------------------------------------------------------
+
+@mixin btn-double (
+		$theme: null,
+		$bg-color: $btn-bg-color,
+		$bg-color-active: $btn-bg-color-active,
+		$font-color: $btn-font-color,
+		$font-color-active: $btn-font-color-active,
+		$icon-fill: $btn-icon-fill,
+		$icon-fill-active: $btn-icon-fill-active,
+		$size: null
+		// display is 100% width table so no block modifier needed
+	) {
+
+			// Check for theme and set args to those values
+			@if $theme {
+				$map: map-get($map-btn-themes-double, $theme);
+				$bg-color: map-get($map, bg-color);
+				$bg-color-active: map-get($map, bg-color-active);
+				$font-color: map-get($map, font-color);
+				$font-color-active: map-get($map, font-color-active);
+				$icon-fill: map-get($map, icon-fill);
+				$icon-fill-active: map-get($map, icon-fill-active);
+			}
+
+			@include btn-primary (
+				$theme,
+				$bg-color,
+				$bg-color-active,
+				$font-color,
+				$font-color-active,
+				$icon-fill,
+				$icon-fill-active,
+				$double: true
+			)
+
+			// Set the required `-wrap` div to display table
+			&-wrap {
+				width: 100%;
+				display: table;
+				margin: 0 auto;
+				font-size: 0;
+				padding: 0;
+				position: relative;
+			}
+			// add the size to these instead of the parent
+			@include btn-size();
+			display: table-cell; // so that the full horizontal space is filled for hovers
+			position: relative;	// so that we can absolutely position the divider
+			border-style: none; // avoid the confusion with the divider
+			vertical-align: middle;
+
+			&-wrap #{&}:first-child::after {
+				content: "";
+		    display: block;
+		    width: 1px;
+		    height: 60%;
+		    background-color: rgba($font-color, 0.25);
+		    position: absolute;
+		    top: 20%;
+				bottom: 20%;
+				right: 0px;
+			}
+
+			@media ($screen-xs-min) {
+				// only add jumbo padding when screen width permits
+				@if $size == jumbo {
+					@include btn-size($size);
+				}
+			}
+}

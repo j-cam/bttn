@@ -1,0 +1,7 @@
+@mixin btn-hover {
+	&:focus,
+	&:active,
+	&:hover {
+		@content;
+	}
+}

@@ -1,0 +1,39 @@
+{
+  "name": "btn",
+  "version": "1.0.0",
+  "description": "A SCSS mixin library for consistent button styling",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-cam/btn.git"
+  },
+  "keywords": [
+    "scss"
+  ],
+  "author": "Jamie Campbell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-cam/btn/issues"
+  },
+  "homepage": "https://github.com/j-cam/btn#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "browser-sync": "^2.18.13",
+    "css-mqpacker": "^6.0.1",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-notify": "^3.0.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "panini": "^1.5.1",
+    "rimraf": "^2.6.2",
+    "run-sequence": "^2.2.0"
+  }
+}

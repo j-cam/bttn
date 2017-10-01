@@ -1,0 +1,191 @@
+%button {
+	@include btn($hover-transition: true);
+}
+
+
+.btn {
+	@extend %button;
+}
+
+//////////////////////////////////////////////////////////////////////
+// BUTTON CLASSES
+// Add these to markup where needed but avoid extending them directly
+// eaxmple: @extend .some-button
+// Instead, use the placeholer extends from the ace btn mixin
+// library directly and create new extends here/there where needed.
+// example @extend %some-button
+// If there's a special case, use the mixins directly in modules.
+/////////////////////////////////////////////////////////////////////
+
+// Primary Buttons =============================================
+
+.btn-base {
+	@extend %btn-base;
+}
+
+.btn-primary {
+	@extend %btn-primary;
+}
+
+.btn-primary--red {
+	@extend %btn-primary;
+}
+.btn-primary--blue {
+	@extend %btn-primary--blue;
+}
+.btn-primary--green {
+	@extend %btn-primary--green;
+}
+
+.btn-primary--reversed {
+	@extend %btn-primary--reversed;
+}
+
+// Jumbo Buttons =============================================
+
+.btn-primary-jumbo {
+	@extend %btn-primary-jumbo;
+}
+.btn-primary-jumbo--red {
+	@extend %btn-primary-jumbo;
+}
+.btn-primary-jumbo--blue {
+	@extend %btn-primary-jumbo--blue;
+}
+.btn-primary-jumbo--green {
+	@extend %btn-primary-jumbo--green;
+}
+
+.btn-primary-jumbo--reversed {
+	@extend %btn-primary-jumbo--reversed;
+}
+
+// Stroke Buttons =======================================
+.btn-stroke {
+	@extend %btn-stroke;
+}
+.btn-stroke--red {
+	@extend %btn-stroke;
+}
+.btn-stroke--blue {
+	@extend %btn-stroke--blue;
+}
+.btn-stroke--blue-red {
+	@extend %btn-stroke--blue-red;
+}
+.btn-stroke--green {
+	@extend %btn-stroke--green;
+}
+
+.btn-stroke--reversed {
+	@extend %btn-stroke--reversed;
+}
+
+// Stroke Micro Buttons ==================================
+.btn-stroke-micro {
+	@extend %btn-stroke-micro;
+}
+.btn-stroke-micro--reversed {
+	@extend %btn-stroke-micro--reversed;
+}
+
+// Floating Buttons =======================================
+
+.btn-floating {
+	@extend %btn-floating;
+}
+.btn-floating--reversed {
+	@extend %btn-floating--reversed;
+}
+.btn-floating--red {
+	@extend %btn-floating;
+}
+.btn-floating--blue {
+	@extend %btn-floating--blue;
+}
+.btn-floating--green {
+	@extend %btn-floating--green;
+}
+.btn-floating--white {
+	@extend %btn-floating--white;
+}
+
+
+// Double & Jumbo Double Buttons ======================
+
+//////////////////////////////////////////////////////////
+//  These require a wrapper parent element of the same
+//  name but with "-wrap" added to it.
+//  Example:
+//  ```
+//      <div class="btn-jumbo-double-wrap">
+//         <a clas="btn-jumbo-double"></a>
+//         <a clas="btn-jumbo-double"></a>
+//     </div>
+//  ```
+//  ```
+//      <div class="btn-jumbo-double--reversed-wrap">
+//         <a clas="btn-jumbo-double--reversed"></a>
+//         <a clas="btn-jumbo-double--reversed"></a>
+//     </div>
+//  ```
+////////////////////////////////////////////////////////
+
+// Double =============================================
+.btn-double {
+	@include btn-double();
+}
+.btn-double--red {
+	@include btn-double();
+}
+.btn-double--reversed {
+	@include btn-double(reversed);
+}
+//  Jumbo Double
+.btn-double-jumbo {
+	@include btn-double-jumbo();
+}
+.btn-double-jumbo--reversed {
+	@include btn-double-jumbo(reversed);
+}
+
+
+// Double Single & Jumbo Double Single Buttons ========
+
+//////////////////////////////////////////////////////////
+//  These require two immediate child elements of
+//  <em> or <span> or a combination of the two.
+//
+//  Examples:
+//  ```
+//      <a class="btn-double-single">
+//          <span></span><span></span>
+//      </a>
+//  ```
+//  ```
+//      <a class="btn-double-single">
+//          <em></em><span></span>
+//      </a>
+//  ```
+////////////////////////////////////////////////////////
+
+// Double Single =======================================
+.btn-double-single {
+	@extend %btn-double-single;
+}
+.btn-double-single--red {
+	@extend %btn-double-single;
+}
+.btn-double-single--reversed {
+	@extend %btn-double-single--reversed;
+}
+// Jumbo Double Single
+.btn-double-single-jumbo {
+	@extend %btn-double-single-jumbo;
+}
+.btn-double-single-jumbo--red {
+	@extend %btn-double-single-jumbo;
+}
+.btn-double-single-jumbo--reversed {
+	@extend %btn-double-single-jumbo--reversed;
+}

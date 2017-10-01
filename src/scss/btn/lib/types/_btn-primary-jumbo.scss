@@ -1,0 +1,50 @@
+//////////////////////////////////////////////////////////////////////////////
+// Mixin defining a jumbo button
+// -- [extends mixin btn-primary]
+//
+// Notes:
+//
+// - ALIAS OF btn-primary mixin with the exception of passing the
+//   the $size argument of 'jumbo' through to the btn-base mixin.
+//
+// - Shares themes with `$map-btn-themes-primary` because they
+//   are fundamentally the same group of styles. But its own map can be
+//   created by duplicating the $map-btn-themes-primary
+//
+// - All arguments default to variables set in buttons-settings which
+//   are also shared with bt-primary.
+//
+//
+// - The same call arguments apply to this mixin as the btn-primary mixin.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+
+@mixin btn-primary-jumbo (
+		$theme: null,
+		$bg-color: $btn-bg-color,
+		$bg-color-active: $btn-bg-color-active,
+		$font-color: $btn-font-color,
+		$font-color-active: $btn-font-color-active,
+		$icon-fill: $btn-icon-fill,
+		$icon-fill-active: $btn-icon-fill-active,
+		$size: jumbo,
+		$double: null,
+		$block: $btn-block
+	) {
+
+			// pass $theme as null to ensure the use of this map
+			// in the event that it needs to break off from shared styles
+			@include btn-primary (
+				$theme,
+				$bg-color,
+				$bg-color-active,
+				$font-color,
+				$font-color-active,
+				$icon-fill,
+				$icon-fill-active,
+				$size: $size,
+				$block: $block
+			);
+
+}

@@ -1,0 +1,146 @@
+//////////////////////////////////////////////////////////
+// Mixin defining a double single button
+// -- [extended by mixin btn-double-single-jumbo]
+//
+// Description:
+// Looks visually the same to btn-double but only contains
+// a single link instead of two.
+//
+// Notes:
+//
+// - ALIAS OF btn-primary mixin with the exception of passing
+//   $double-single: true and optionally passing the
+//   $size argument of 'jumbo' through to the btn-base mixin.
+//
+// - Shares themes with `$map-btn-themes-primary` because they
+//   are fundamentally the same group of styles.
+//
+// - All arguments default to variables set in buttons-settings which
+//   are also shared with btn-primary.
+//
+//
+// - The same call arguments apply to this mixin as the btn-primary mixin.
+//
+// Examples:
+// default:         btn-double-single() - red background white text
+// theme:           btn-double-single(red)
+// overloaded:      btn-double-single(null, #000, #fff, #fff, #000, #e53d46, #000, null)
+// underloaded:  btn-jumbo-double(green, $size: jumbo)
+//
+//  !!*** Special Markup Requirements ***!!
+//  These require two immediate child elements of
+//  <em> or <span> or a combination of the two.
+//
+//  Examples:
+//  ```
+//      <a class="btn-double-single">
+//          <span></span><span></span>
+//      </a>
+//  ```
+//  ```
+//      <a class="btn-double-single">
+//          <em></em><span></span>
+//      </a>
+//  ```
+//  SASS FOR EXAMPLE MARKUP
+//  ```
+//  .my-btn-class {
+//      @include btn-double-single();
+//  }
+////////////////////////////////////////////////////////
+
+@mixin btn-double-single (
+		$theme: null,
+		$bg-color: $btn-bg-color,
+		$bg-color-active: $btn-bg-color-active,
+		$font-color: $btn-font-color,
+		$font-color-active: $btn-font-color-active,
+		$icon-fill: $btn-icon-fill,
+		$icon-fill-active: $btn-icon-fill-active,
+		$size: null
+	) {
+
+			// Check for theme and set args to those values
+			@if $theme {
+				$map: map-get($map-btn-themes-double-single, $theme);
+				$bg-color: map-get($map, bg-color);
+				$bg-color-active: map-get($map, bg-color-active);
+				$font-color: map-get($map, font-color);
+				$font-color-active: map-get($map, font-color-active);
+				$icon-fill: map-get($map, icon-fill);
+				$icon-fill-active: map-get($map, icon-fill-active);
+			}
+
+			@include btn-primary (
+				$theme,
+				$bg-color,
+				$bg-color-active,
+				$font-color,
+				$font-color-active,
+				$icon-fill,
+				$icon-fill-active,
+				$size: $size,
+				$double: true
+			)
+
+			width: 100%;
+			display: inline-block;
+			padding: 0;
+			position: relative;
+			border-style: $btn-border-style;
+
+			> span, > em {	// must be either be an <em> or a <span>
+				display: inline-block;
+				// add the size to these instead of the parent
+				@include btn-size();
+				position: relative;	// so that we can absolutely position the divider
+				// border-style: none; // avoid the confusion with the divider
+				vertical-align: middle;
+			}
+
+			> span:first-child::after, > em:first-child::after { // again may be an <em> or a <span>
+				content: "";
+				display: block;
+				width: 1px;
+				height: 60%;
+				position: absolute;
+				top: 20%;
+				bottom: 20%;
+				right: 0px;
+				background-color: rgba($font-color, 0.25);
+			}
+
+			> em {
+			 	// adjust the padding to keep height from growing b/c of larger font size
+				// 	@if $size == jumbo {
+
+					// font-size: rem(24px);
+				// } @else {
+					padding: $btn-padding-em-adjust;
+					font-size: rem(15px);
+				// }
+				line-height: 1;
+				font-family: $font-family-muli;
+				font-weight: $font-weight-semibold;
+				font-style: normal;
+			}
+
+			@media ($screen-xs-min) {
+				// only add jumbo padding when screen width permits
+				@if $size == jumbo {
+					> span, > em {
+						@include btn-size($size);
+					}
+				}
+				> em {
+					// only add jumbo padding & larger font size when screen width permits
+					@if $size == jumbo {
+						padding: $btn-padding-jumbo-em-adjust;
+						font-size: rem(24px);
+					} @else {
+						font-size: rem(18px);
+					}
+				}
+			}
+
+}
