@@ -1,0 +1,26 @@
+////////////////////////////////////////////////////////////
+// BUTTONS BASE DEFAULTS //////////////////////////////
+//////////////////////////////////////////////////////////
+
+
+// Box Sizing
+$btn-display:                  inline-block !default;
+$btn-block:                    null !default;
+$btn-padding:                  15px 20px !default;
+$btn-padding-em-adjust:        15px 20px !default; // b/c of larger font size on <em>
+$btn-padding-xl:               24px 32px !default;
+$btn-padding-xl-em-adjust:     15px 32px !default; // b/c of larger font size on <em>
+$btn-padding-sm:               9px 15px !default;
+
+// Positioning
+$btn-margin:                   0 auto !default;
+
+// Borders
+$btn-border-width:             1px !default;
+$btn-border-style:             solid !default;
+
+//////////////////////////////////////////////////////////
+// BUTTON OPTIONS ////////////////////////////////////////
+//////////////////////////////////////////////////////////
+$btn-transition-duration: .3s !default;
+$btn-floating: false !default;

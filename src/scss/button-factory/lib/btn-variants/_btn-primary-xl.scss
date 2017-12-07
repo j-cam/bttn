@@ -1,11 +1,11 @@
 //////////////////////////////////////////////////////////////////////////////
-// Mixin defining a jumbo button
+// Mixin defining a xl button
 // -- [extends mixin btn-primary]
 //
 // Notes:
 //
 // - ALIAS OF btn-primary mixin with the exception of passing the
-//   the $size argument of 'jumbo' through to the btn-base mixin.
+//   the $size argument of 'xl' through to the btn-base mixin.
 //
 // - Shares themes with `$map-btn-themes-primary` because they
 //   are fundamentally the same group of styles. But its own map can be
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 
-@mixin btn-primary-jumbo (
+@mixin btn-primary-xl (
 		$theme: null,
 		$bg-color: $btn-bg-color,
 		$bg-color-active: $btn-bg-color-active,
@@ -28,7 +28,7 @@
 		$font-color-active: $btn-font-color-active,
 		$icon-fill: $btn-icon-fill,
 		$icon-fill-active: $btn-icon-fill-active,
-		$size: jumbo,
+		$size: xl,
 		$double: null,
 		$block: $btn-block
 	) {

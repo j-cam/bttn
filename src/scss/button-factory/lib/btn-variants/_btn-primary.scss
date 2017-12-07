@@ -46,7 +46,7 @@
 	@include btn-hover-transition();
 	// doube and double-single handle their own display
 	@if not $double {
-		// jumbo or micro is passed through when this is called from an alias
+		// xl or sm is passed through when this is called from an alias
 		@include btn-size($size);
 		@if $block == true {
 			display: block;

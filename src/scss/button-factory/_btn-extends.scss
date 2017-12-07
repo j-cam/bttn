@@ -1,0 +1,161 @@
+//
+%btn-base {
+	@include btn();
+}
+%btn-base--xl {
+	@include btn($size: xl);
+}
+
+%btn-base--block {
+	@include btn($block: true);
+}
+
+//////////////////////////////////////////////////////////
+// 1. Primary Buttons ///////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-primary {
+	@include btn-primary();
+}
+
+%btn-primary--red {
+	@include btn-primary(red);
+}
+
+%btn-primary--blue {
+	@include btn-primary(blue);
+}
+%btn-primary--green {
+	@include btn-primary(green);
+}
+
+%btn-primary--gray-light {
+	@include btn-primary(gray-light);
+}
+
+%btn-primary--gray-light-green {
+	@include btn-primary(gray-light-green);
+}
+
+
+%btn-primary--reversed {
+	@include btn-primary(reversed);
+}
+
+%btn-primary--reversed-red-icon {
+	@include btn-primary(reversed);
+}
+//////////////////////////////////////////////////////////
+// 2. xl Buttons /////////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-primary-xl {
+	@include btn-primary-xl();
+}
+%btn-primary-xl--red {
+	@include btn-primary-xl();
+}
+
+%btn-primary-xl--blue {
+	@include btn-primary-xl(blue);
+}
+%btn-primary-xl--green {
+	@include btn-primary-xl(green);
+}
+
+%btn-primary-xl--reversed {
+	@include btn-primary-xl(reversed);
+}
+
+
+
+
+//////////////////////////////////////////////////////////
+// 4. Stroke Buttons ////////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-stroke {
+	@include btn-stroke();
+}
+%btn-stroke--red {
+	@include btn-stroke(red);
+}
+%btn-stroke--blue {
+	@include btn-stroke(blue);
+}
+%btn-stroke--blue-red {
+	@include btn-stroke(blue-red);
+}
+%btn-stroke--green {
+	@include btn-stroke(green);
+}
+
+%btn-stroke--reversed {
+	@include btn-stroke(reversed);
+}
+//////////////////////////////////////////////////////////
+// 5. Stroke sm Buttons //////////////////////////////
+////////////////////////////////////////////////////////
+%btn-stroke-sm {
+	@include btn-stroke-sm();
+}
+
+%btn-stroke-sm--red {
+	@include btn-stroke-sm(red);
+}
+
+%btn-stroke-sm--blue {
+	@include btn-stroke-sm(blue);
+}
+
+%btn-stroke-sm--green {
+	@include btn-stroke-sm(green);
+}
+
+%btn-stroke-sm--reversed {
+	@include btn-stroke-sm(reversed);
+}
+//////////////////////////////////////////////////////////
+// 6. Floating Buttons //////////////////////////////////
+////////////////////////////////////////////////////////
+%btn-floating {
+	@include btn-floating();
+}
+
+%btn-floating--red {
+	@include btn-floating(red);
+}
+
+%btn-floating--blue {
+	@include btn-floating(blue);
+}
+
+%btn-floating--green {
+	@include btn-floating(green);
+}
+
+%btn-floating--white {
+	@include btn-floating(white);
+}
+// red text blue icon
+%btn-floating--red-blue {
+	@include btn-floating(red-blue);
+}
+// blue text red icon
+%btn-floating--blue-red {
+	@include btn-floating(blue-red);
+}
+// white text red icon
+%btn-floating--white-red {
+	@include btn-floating(white-red);
+}
+
+%btn-floating--reversed {
+	@include btn-floating(reversed);
+}
+
+
+%btn-tag--gray-light {
+	@include btn-tag(gray-light);
+}
+
+%btn-tag-filter--blue {
+	@include btn-tag($theme:blue, $type:filter);
+}

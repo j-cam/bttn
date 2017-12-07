@@ -1,10 +1,10 @@
 // Predefined themes for buttons
 // divied into button types
 // 	1. Primary:      rectangular buttons with solid color backgrounds
-// 	2. Jumbo:        same as primary but larger with more padding
-// 	3. Jumbo Double: similar to jumbo but two side by side
+// 	2. xl:        same as primary but larger with more padding
+// 	3. xl Double: similar to xl but two side by side
 // 	4. Stroke:       rectangular buttons with solid or transparent backgrounds and a border
-// 	5. Stroke Micro: similar to stroke but with less padding
+// 	5. Stroke sm: similar to stroke but with less padding
 // 	6. Floating:     buttons without any background color or stroke
 
 
@@ -88,20 +88,20 @@ $map-btn-themes-double-single-unique :();
 $map-btn-themes-double-single: map-merge($map-btn-themes-primary, $map-btn-themes-double-single-unique);
 
 ////////////////////////////////////////////////////////////
-// 2. Jumbo Button Themes /////////////////////////////////
+// 2. xl Button Themes /////////////////////////////////
 //////////////////////////////////////////////////////////
 // Shares themes with $map-btn-themes-primary overrides
 // to or unique themes can be added to this map:
-$map-btn-themes-jumbo-unique :();
-$map-btn-themes-jumbo: map-merge($map-btn-themes-primary, $map-btn-themes-jumbo-unique);
+$map-btn-themes-xl-unique :();
+$map-btn-themes-xl: map-merge($map-btn-themes-primary, $map-btn-themes-xl-unique);
 
 ////////////////////////////////////////////////////////////
-// 3. Jumbo Double Button Themes //////////////////////////
+// 3. xl Double Button Themes //////////////////////////
 //////////////////////////////////////////////////////////
 // Shares themes with $map-btn-themes-primary overrides
 // to or unique themes can be added to this map:
-$map-btn-themes-jumbo-double-unique :();
-$map-btn-themes-jumbo-double: map-merge($map-btn-themes-primary, $map-btn-themes-jumbo-double-unique);
+$map-btn-themes-xl-double-unique :();
+$map-btn-themes-xl-double: map-merge($map-btn-themes-primary, $map-btn-themes-xl-double-unique);
 
 ////////////////////////////////////////////////////////////
 // 4. Stroke Button Themes ////////////////////////////////
@@ -136,12 +136,12 @@ $map-btn-themes-stroke :(
 	),
 );
 ////////////////////////////////////////////////////////////
-// 5. Stroke Micro Buttons ////////////////////////////////
+// 5. Stroke sm Buttons ////////////////////////////////
 //////////////////////////////////////////////////////////
 // Shares themes with $map-btn-themes-stroke but
 // overrides or unique themes can be added to this map:
-$map-btn-themes-stroke-micro-unique :();
-$map-btn-themes-stroke-micro: map-merge($map-btn-themes-stroke, $map-btn-themes-stroke-micro-unique);
+$map-btn-themes-stroke-sm-unique :();
+$map-btn-themes-stroke-sm: map-merge($map-btn-themes-stroke, $map-btn-themes-stroke-sm-unique);
 
 
 ////////////////////////////////////////////////////////////
