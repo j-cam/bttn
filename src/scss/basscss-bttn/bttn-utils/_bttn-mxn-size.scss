@@ -1,0 +1,46 @@
+// Add the appropriate padding to buttons
+@mixin bttn-size($size:null, $font-size:null){
+	// ---------------------------------
+	// FONT SIZE & LINE HEIGHT
+	// ---------------------------------
+	@if $size == xl {
+		padding: $bttn-padding-xl;
+		// @debug 'bttn $size = xl';
+	}
+	@else if $size == lg {
+		padding: $bttn-padding-lg;
+		// @debug 'bttn $size = lg';
+	}
+	@else if $size == sm {
+		padding: $bttn-padding-sm;
+		// @debug 'bttn $size = sm';
+	}
+	@else {
+		padding: $bttn-padding;
+		// @debug 'bttn $size = default';
+	}
+	// ---------------------------------
+	// FONT SIZE & LINE HEIGHT
+	// ---------------------------------
+	@if $font-size == xl {
+		font-size: $bttn-font-size-xl;
+		line-height: $bttn-line-height-xl;
+		// @debug 'bttn $font-size = XL';
+	}
+	@else if $font-size == lg {
+		font-size: $bttn-font-size-lg;
+		line-height: $bttn-line-height-lg;
+		// @debug 'bttn $font-size = LG';
+	}
+	@else if $font-size == sm {
+		font-size: $bttn-font-size-sm;
+		line-height: $bttn-line-height-sm;
+		// @debug 'bttn $font-size = SM';
+	}
+	@else {
+		font-size: $bttn-font-size;
+		line-height: $bttn-line-height;
+		// @debug 'bttn $font-size = Default';
+	}
+
+}

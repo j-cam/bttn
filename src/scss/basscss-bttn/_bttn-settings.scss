@@ -1,0 +1,65 @@
+////////////////////////////////////////////////////////////
+// BUTTONS BASE DEFAULTS //////////////////////////////
+//////////////////////////////////////////////////////////
+
+$bttn-font-family:       "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$bttn-font-size-base:    16px; // typically 16px
+$bttn-font-weight:       normal !default;
+$bttn-letter-spacing:    normal !default;
+$bttn-text-transform:    uppercase !default;
+$bttn-display:           inline-block !default;
+
+$bttn-border-width:      1px !default;
+$bttn-border-style:      solid !default;
+$bttn-border-radius:     0 !default;
+$bttn-transition-duration: .3s !default;
+
+// ------------------------------------------
+// SIZING (padding, font-size, line-height)
+// Size and Font Size
+// ------------------------------------------
+
+// SM -- $size: sm
+$bttn-padding-sm:             9px 13px !default;
+// SM -- $font-size: sm
+$bttn-font-size-sm:           bttn-rem(12px) !default;
+$bttn-line-height-sm:         bttn-lh(12px, 14px) !default;
+
+// DEFAULT: size
+$bttn-padding:                 16px 20px !default;
+// DEFAULT: font-size
+$bttn-font-size:               bttn-rem(15px) !default;
+$bttn-line-height:             bttn-lh(15px, 17px) !default;
+
+// LG -- $size: lg
+$bttn-padding-lg:               23px 27px !default;
+// LG -- $font-size: lg
+$bttn-font-size-lg:             bttn-rem(16px) !default;
+$bttn-line-height-lg:           bttn-lh(16px, 18px) !default;
+
+// XL -- $size: xl
+$bttn-padding-xl:               30px 34px !default;
+// XL -- $font-size: xl
+$bttn-font-size-xl:             bttn-rem(18px) !default;
+$bttn-line-height-xl:           bttn-lh(18px, 20px) !default;
+
+// ------------------------------------------
+// DEFAULT THEMES FOR EACH BUTTON TYPE
+// ------------------------------------------
+
+//  bttn-PRIMARY DEFAULT THEME
+$bttn-theme-defaults: map-get(
+    $map-bttn-themes, 'default'
+);
+//  bttn-STROKE DEFAULT THEME
+$bttn-stroke-theme-defaults: map-get(
+    $map-bttn-stroke-themes, 'default'
+);
+// bttn-FLOATING DEFAULT THEME
+$bttn-floating-theme-defaults: map-get(
+    $map-bttn-floating-themes, 'default'
+);
+// bttn-PILL DEFAULT THEME
+$bttn-pill-theme-defaults: map-get(
+    $map-bttn-pill-themes, 'default'
+);

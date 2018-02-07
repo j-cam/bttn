@@ -1,0 +1,48 @@
+// ======================================
+// Strip Unit Values
+// ======================================
+// @param {string} $num
+// @example scss
+// Input:  .foo{ some-property: strip-unit(30px); }
+// Output: .foo{ some-property: 30; }
+// @returns {number}
+// ======================================
+@function bttn-strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// ======================================
+// Rem: convert px to rem
+// ======================================
+// @param {string} $num
+// @example scss
+// Input:  .foo{ font-size: rem(16px); } OR .foo{ font-size: rem(16); }
+// Output: .foo{ font-size: 1rem; }
+// @returns {string}
+// ======================================
+@function bttn-rem($size_px: $bttn-font-size-base) {
+
+  $size: bttn-strip-unit($size_px);
+  $base: bttn-strip-unit($bttn-font-size-base);
+
+  @return ($size / $base) + rem;
+}
+
+
+
+// Converts the PSD font and line-height to a unitless CSS line-height number
+@function bttn-lh( $font_px_val, $psd_lh_px_val: "") {
+    @if $psd_lh_px_val=="" {
+        @warn "No line height provided assuming auto line height";
+        $font_px: bttn-strip-unit($font_px_val);
+        $lh_px: $font_px * 1.2;
+        // line-height/font-size
+        @return $lh_px / $font_px;
+    }
+    @else {
+        $font_px: bttn-strip-unit( $font_px_val);
+        $lh_px: bttn-strip-unit( $psd_lh_px_val);
+        // line-height/font-size
+        @return $lh_px / $font_px;
+    }
+}

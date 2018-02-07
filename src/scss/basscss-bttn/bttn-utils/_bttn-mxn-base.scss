@@ -1,0 +1,34 @@
+/*
+* Base Button Style
+* The shared default values for all ace buttons
+*
+* -- use in all new types created
+* -- should only be called directly from types
+* -- can be called inderectly using @include bttn()
+*
+*/
+@mixin bttn-base {
+    appearance: none; // just in case it's a button or input
+    cursor: pointer;
+    font-weight: $bttn-font-weight;
+    font-family: $bttn-font-family;
+    overflow-wrap: break-word;
+    text-decoration: none;
+    text-align: center;
+    text-transform: $bttn-text-transform;
+    word-break: break-word;
+
+    &:active,
+    &:hover {
+        text-decoration: none;
+
+        .icon,
+        .icon-wrap {
+            text-decoration: none;
+        }
+    }
+
+    &:focus {
+      outline: thin dotted;
+    }
+}

@@ -30,7 +30,7 @@ gulp.task('serve', function() {
     scroll: true,
     injectChanges: true,
     open: false,
-    files: ["docs/css/btn.css"],
+    files: ["docs/css/style.css"],
   });
 });
 

@@ -1,5 +1,5 @@
 {
-  "name": "btn",
+  "name": "basscss-bttn",
   "version": "1.0.0",
   "description": "A SCSS mixin library for consistent button styling",
   "main": "gulpfile.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-cam/btn.git"
+    "url": "git+https://github.com/j-cam/basscss-bttn.git"
   },
   "keywords": [
     "scss"
@@ -16,9 +16,9 @@
   "author": "Jamie Campbell",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/j-cam/btn/issues"
+    "url": "https://github.com/j-cam/basscss-bttn/issues"
   },
-  "homepage": "https://github.com/j-cam/btn#readme",
+  "homepage": "https://github.com/j-cam/basscss-bttn#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
     "browser-sync": "^2.18.13",

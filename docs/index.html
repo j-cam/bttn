@@ -1,297 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
-	<meta charset="utf-8" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta property="og:url" content="" />
-	<meta property="og:type" content="" />
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:image:type" content="" />
-	<meta property="og:image:width" content="" />
-	<meta property="og:image:height" content="" />
-	<meta name="twitter:card" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:description" content="" />
-	<meta name="twitter:image:src" content="" />
-	<meta name="twitter:domain" content="" />
-	<title>Buttons</title>
-	<link rel="canonical" href="">
-	<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BASSCSS BTTN</title>
+  <link rel="canonical" href="">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-
-
-
 <style>
-	table {width:90%; margin: 0 auto 60px auto; text-align: center;}
-	table, tr, td, th { text-align: center;}
-	td {padding: 1em .5em; width: 33.33333%}
-	th {padding: .5em; font-size:16px; font-weight: normal}
-	thead,tr {border-bottom: 1px solid #ccc;}
-	thead { background-color: #44b1a0; color: #fff; }
-	caption { color:#cd333c; text-align: center;}
-	.rv, .rv td { background-color: #02263c;}
-	.rv code { color: #fff;}
-	.button-demo h2 {text-align: center;width:90%;margin: 20px auto; font-size: 26px;}
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  table {
+    width: 100%;
+    margin: 0 auto 1.5em auto;
+    text-align: center;
+    border-collapse: collapse
+  }
+
+  table,
+  tr,
+  td,
+  th {
+    text-align: center;
+  }
+
+  td {
+    padding: 1em .5em;
+    width: 33.33333%
+  }
+
+  tbody td {
+    border-bottom: 1px dotted #000;
+  }
+
+  th {
+    padding: .5em;
+    font-size: 16px;
+    font-weight: normal
+  }
+
+  thead,
+  tr {
+    border-bottom: 1px solid #ccc;
+  }
+
+  thead {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+  }
+
+  caption {
+    color: #cd333c;
+    text-align: center;
+  }
+
+  .rv,
+  .rv td {
+    background-color: #02263c;
+  }
+
+  .rv code {
+    color: #fff;
+  }
+
+  .button-demo h2 {
+    text-align: left;
+    margin: 0 0 0.5em 0;
+    font-size: 1rem;
+    font-weight: normal
+  }
+
 </style>
 
 
- <section class="sub-section button-demo">
+<section class="sub-section button-demo">
 
- 	<h2>PRIMARY BUTTONS</h2>
- 	<table>
- 		<thead>
- 			<tr>
- 				<th>SASS MIXIN</th>
- 				<th>HTML CLASS</th>
- 				<th>RENDERING</th>
- 			</tr>
- 		</thead>
- 		<tbody>
-
-
-			<tr>
- 				<td><code>btn()</code></td>
- 				<td><code>.bttn</code></td>
- 				<td>
- 					<a href="#" class="bttn">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr>
- 				<td><code>btn(red)</code></td>
- 				<td><code>.bttn--red</code></td>
- 				<td>
- 					<a href="#" class="bttn--red">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr>
- 				<td><code>btn(blue)</code></td>
- 				<td><code>.bttn--blue</code></td>
- 				<td>
- 					<a href="#" class="bttn--blue">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr>
- 				<td><code>btn(green)</code></td>
- 				<td><code>.bttn--green</code></td>
- 				<td>
- 					<a href="#" class="bttn--green">Subscribe</a>
- 				</td>
- 			</tr>
- 			<tr class="rv">
- 				<td><code>btn(reversed)</code></td>
- 				<td><code>.bttn--reversed</code></td>
- 				<td>
- 					<a href="#" class="bttn--reversed">Subscribe</a>
- 				</td>
- 			</tr>
- 		</tbody>
- 	</table>
-
-	<h2>xl BUTTONS</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>SASS MIXIN</th>
-				<th>HTML CLASS</th>
-				<th>RENDERING</th>
-			</tr>
-		</thead>
-		<tbody>
-
-			<tr>
-				<td><code>@include btn-xl()</code></td>
-				<td><code>.bttn-xl</code></td>
-				<td>
-					<a href="#" class="bttn-xl">Subscribe</a>
-				</td>
-			</tr>
-			<tr>
-			 <td><code>btn-xl(red)</code></td>
-			 <td><code>.bttn-xl--red</code></td>
-			 <td>
-				 <a href="#" class="bttn-xl--red">Subscribe</a>
-			 </td>
-		 </tr>
-
-		 <tr>
-			 <td><code>btn-xl(blue)</code></td>
-			 <td><code>.bttn-xl--blue</code></td>
-			 <td>
-				 <a href="#" class="bttn-xl--blue">Subscribe</a>
-			 </td>
-		 </tr>
-
-		 <tr>
-			 <td><code>btn-xl(green)</code></td>
-			 <td><code>.bttn-xl--green</code></td>
-			 <td>
-				 <a href="#" class="bttn-xl--green">Subscribe</a>
-			 </td>
-		 </tr>
-		 <tr class="rv">
-			 <td><code>btn-xl(reversed)</code></td>
-			 <td><code>.bttn-xl--reversed</code></td>
-			 <td>
-				 <a href="#" class="bttn-xl--reversed">Subscribe</a>
-			 </td>
-		 </tr>
-		</tbody>
- 	</table>
+  <h2>PRIMARY BUTTONS</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Sass Mixin</th>
+        <th>Class Name</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
 
 
- 	<h2>STROKE BUTTONS</h2>
- 	<table>
- 		<thead>
- 			<tr>
- 				<th>SASS MIXIN</th>
- 				<th>HTML CLASS</th>
- 				<th>RENDERING</th>
- 			</tr>
- 		</thead>
- 		<tbody>
+      <tr>
+        <td>
+          <code>bttn($size:sm, $font-size:sm)</code>
+        </td>
+        <td>
+          <code>.bttn-sm</code>
+        </td>
+        <td>
+          <a href="#" class="bttn-sm">Button Text</a>
+        </td>
+      </tr>
 
- 			<tr>
- 				<td><code>@include btn-stroke()</code></td>
- 				<td><code>.bttn-stroke</code></td>
- 				<td>
- 					<a href="#" class="bttn-stroke">Subscribe</a>
- 				</td>
- 			</tr>
- 			<tr>
- 				<td><code>btn-stroke(red)</code></td>
- 				<td><code>.bttn-stroke--red</code></td>
- 				<td>
- 					<a href="#" class="bttn-stroke--red">Subscribe</a>
- 				</td>
- 			</tr>
+      <tr>
+        <td>
+          <code>bttn()</code>
+        </td>
+        <td>
+          <code>.bttn</code>
+        </td>
+        <td>
+          <a href="#" class="bttn">Button Text</a>
+        </td>
+      </tr>
 
- 			<tr>
- 				<td><code>btn-stroke(blue)</code></td>
- 				<td><code>.bttn-stroke--blue</code></td>
- 				<td>
- 					<a href="#" class="bttn-stroke--blue">Subscribe</a>
- 				</td>
- 			</tr>
+      <tr>
+        <td>
+          <code>bttn($size:lg, $font-size:lg)</code>
+        </td>
+        <td>
+          <code>.bttn-lg</code>
+        </td>
+        <td>
+          <a href="#" class="bttn-lg">Button Text</a>
+        </td>
+      </tr>
 
- 			<tr>
- 				<td><code>btn-stroke(green)</code></td>
- 				<td><code>.bttn-stroke--green</code></td>
- 				<td>
- 					<a href="#" class="bttn-stroke--green">Subscribe</a>
- 				</td>
- 			</tr>
-			<tr class="rv">
- 				<td><code>btn-stroke(reversed)</code></td>
- 				<td><code>.bttn-stroke--reversed</code></td>
- 				<td>
- 					<a href="#" class="bttn-stroke--reversed">Subscribe</a>
- 				</td>
- 			</tr>
- 		</tbody>
- 		</tbody>
- 	</table>
-	<h2>STROKE BUTTONS SM (small)</h2>
-	<table>
-		<thead>
-			<tr>
-				<th>SASS MIXIN</th>
-				<th>HTML CLASS</th>
-				<th>RENDERING</th>
-			</tr>
-		</thead>
-		<tbody>
-
-			<tr>
-				<td><code>@include btn-stroke-sm()</code></td>
-				<td><code>.bttn-stroke-sm</code></td>
-				<td>
-					<a href="#" class="bttn-stroke-sm">$19.95</a>
-				</td>
-			</tr>
-			<tr class="rv">
-				<td><code>@include btn-stroke-sm(white)</code></td>
-				<td><code>.bttn-stroke-sm--reversed</code></td>
-				<td>
-					<a href="#" class="bttn-stroke-sm--reversed">$19.95</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
- 	<h2>FLOATING BUTTONS</h2>
- 	<table>
- 		<thead>
- 			<tr>
- 				<th>SASS MIXIN</th>
- 				<th>HTML CLASS</th>
- 				<th>RENDERING</th>
- 			</tr>
- 		</thead>
- 		<tbody>
-
- 			<tr>
- 				<td><code>@include btn-floating()</code></td>
- 				<td><code>.bttn-floating</code></td>
- 				<td>
- 					<a href="#" class="bttn-floating">Subscribe</a>
- 				</td>
- 			</tr>
- 			<tr>
- 				<td><code>btn-floating(red)</code></td>
- 				<td><code>.bttn-floating--red</code></td>
- 				<td>
- 					<a href="#" class="bttn-floating--red">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr>
- 				<td><code>btn-floating(blue)</code></td>
- 				<td><code>.bttn-floating--blue</code></td>
- 				<td>
- 					<a href="#" class="bttn-floating--blue">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr>
- 				<td><code>btn-floating(green)</code></td>
- 				<td><code>.bttn-floating--green</code></td>
- 				<td>
- 					<a href="#" class="bttn-floating--green">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr class="rv">
- 				<td><code>btn-floating(white)</code></td>
- 				<td><code>.bttn-floating--white</code></td>
- 				<td>
- 					<a href="#" class="bttn-floating--white">Subscribe</a>
- 				</td>
- 			</tr>
-
- 			<tr class="rv">
- 				<td><code>btn-floating(reversed)</code></td>
- 				<td><code>.bttn-floating--reversed</code></td>
- 				<td>
- 					<a href="#" class="bttn-floating--reversed">Subscribe</a>
- 				</td>
- 			</tr>
- 		</tbody>
- 	</table>
+      <tr>
+          <td>
+            <code>bttn($size:xl, font-size:xl)</code>
+          </td>
+          <td>
+            <code>.bttn-xl</code>
+          </td>
+          <td>
+            <a href="#" class="bttn-xl">Button Text</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
 
+  <h2>STROKE BUTTONS</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Sass Mixin</th>
+        <th>Class Name</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
 
 
- </section>
+      <tr>
+        <td>
+          <code>bttn-stroke($size:sm, $font-size:sm)</code>
+        </td>
+        <td>
+          <code>.bttn-stroke-sm</code>
+        </td>
+        <td>
+          <a href="#" class="bttn-stroke-sm">Button Text</a>
+        </td>
+      </tr>
 
+      <tr>
+        <td>
+          <code>bttn-stroke()</code>
+        </td>
+        <td>
+          <code>.bttn-stroke</code>
+        </td>
+        <td>
+          <a href="#" class="bttn-stroke">Button Text</a>
+        </td>
+      </tr>
 
+      <tr>
+        <td>
+          <code>bttn-stroke($size:lg, $font-size:lg)</code>
+        </td>
+        <td>
+          <code>.bttn-stroke-lg</code>
+        </td>
+        <td>
+          <a href="#" class="bttn-stroke-lg">Button Text</a>
+        </td>
+      </tr>
 
+      <tr>
+          <td>
+            <code>bttn-stroke($size:xl, font-size:xl)</code>
+          </td>
+          <td>
+            <code>.bttn-stroke-xl</code>
+          </td>
+          <td>
+            <a href="#" class="bttn-stroke-xl">Button Text</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <h2>FLOATING BUTTONS</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Sass Mixin</th>
+        <th>Class Name</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>
+          <code>bttn-floating()</code>
+        </td>
+        <td>
+          <code>.bttn-floating</code>
+        </td>
+        <td>
+          <a href="#" class="bttn-floating">Button Text</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
 
 </body>
+
 </html>

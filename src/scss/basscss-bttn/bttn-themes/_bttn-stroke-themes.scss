@@ -1,0 +1,15 @@
+////////////////////////////////////////////////////////////
+// 4. Stroke Button Themes ////////////////////////////////
+//////////////////////////////////////////////////////////
+$map-bttn-stroke-themes :(
+  default:(
+    font-color: #181d1c,
+    font-color-active: #fff,
+    bg-color: #fff,
+    bg-color-active: #181d1c,
+    border-color: #181d1c,
+    border-color-active: #181d1c,
+    icon-fill: #181d1c,
+    icon-fill-active: #fff,
+    )
+);

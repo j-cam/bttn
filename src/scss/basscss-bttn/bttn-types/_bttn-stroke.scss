@@ -1,0 +1,103 @@
+// Mixin defining a stroke button
+// Notes:
+// - All arguments default to variables set in buttons-settings.
+//
+// - Theme keys must be stored in the `$map-bttn-stroke-themes` in
+//   `_buttons-themes.scss`
+//
+// - If passing individual arguments you must pass null as the first argument
+// - and use name arguments unless all arguments are passed [see underloaded example].
+//
+// Examples:
+// default:         bttn-stroke()
+// theme:           bttn-stroke(red)
+// overloaded:      bttn-stroke(null, #000, #fff, #000)
+// oveunderloaded:  bttn-stroke(null, $font-color: #000)
+
+@mixin bttn-stroke(
+        $theme:             null,
+        $size:              null,
+        $font-size:         null,
+        $block:             null
+    ) {
+        // Initialize the $map variable so it can be set dynamically
+        $map: null;
+        // Check for theme and set args to those values
+        @if $theme {
+            $map: map-get($map-bttn-stroke-themes, $theme);
+        } @else {
+            $map: $bttn-stroke-theme-defaults;
+        }
+        // Map the values
+        $bg-color: map-get($map, bg-color);
+        $bg-color-active: map-get($map, bg-color-active);
+        $border-color: map-get($map, border-color);
+        $border-color-active: map-get($map, border-color-active);
+        $font-color: map-get($map, font-color);
+        $font-color-active: map-get($map, font-color-active);
+        $icon-fill: map-get($map, icon-fill);
+        $icon-fill-active: map-get($map, icon-fill-active);
+
+        // include shared styles
+        @include bttn-base();
+
+        // include button transition properties
+        @include bttn-hover-transition();
+
+        // xl or sm is passed through when this is called from an alias
+        @include bttn-size($size, $font-size);
+
+        @if $block {
+            display: block;
+            width: 100%;
+        }
+        @else {
+            display: inline-block;
+        }
+
+        color: $font-color;
+        background-color: $bg-color;
+        border-color: $border-color;
+        border-radius: $bttn-border-radius;
+        border-style: $bttn-border-style;
+        border-width: $bttn-border-width;
+
+        .icon {
+            @if $icon-fill {
+                fill: $icon-fill;
+            }
+            @else {
+                fill: $font-color;
+            }
+        }
+
+        &:visited {
+            color: $font-color;
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: $font-color-active;
+            border-color: $border-color-active;
+            background-color: $bg-color-active;
+            .icon {
+                @if $icon-fill-active {
+                    fill: $icon-fill-active;
+                }
+                @else {
+                    fill: $font-color-active;
+                }
+            }
+        }
+
+        // Disabled State
+        //
+        // The disabled state uses the class .disabled, is-disabled,
+        // and the form attribute disabled="disabled".
+        // The use of !important is only added because this is a state
+        // that must be applied to all buttons when in a disabled state.
+        // &.disabled,
+        // &.is-disabled,
+        // &:disabled {}
+}

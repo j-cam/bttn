@@ -1,0 +1,4 @@
+@mixin bttn-hover-transition() {
+	transition-property: color, background-color, border-color, fill;
+	transition-duration: $bttn-transition-duration;
+}

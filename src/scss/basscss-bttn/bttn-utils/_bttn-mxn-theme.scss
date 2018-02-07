@@ -1,0 +1,53 @@
+@mixin bttn-theme($theme: null) {
+
+    // Check for theme and set args to those values
+    @if $theme and map-get($map-bttn-themes, $theme) {
+
+		$map: map-get($map-bttn-themes, $theme);
+        $bg-color: map-get($map, bg-color);
+        $bg-color-active: map-get($map, bg-color-active);
+        $font-color: map-get($map, font-color);
+        $font-color-active: map-get($map, font-color-active);
+        $icon-fill: map-get($map, icon-fill);
+        $icon-fill-active: map-get($map, icon-fill-active);
+
+        @include bttn-hover-transition;
+
+        border-color: $bg-color;
+        color: $font-color;
+        background-color: $bg-color;
+
+        .icon {
+            @if $icon-fill { // if specified
+                fill: $icon-fill;
+            }
+            @else { // else same as font color
+                fill: $font-color;
+            }
+        }
+
+        &:visited {
+            color: $font-color;
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: $font-color-active;
+            background-color: $bg-color-active;
+            border-color: $bg-color-active;
+
+            .icon {
+                @if $icon-fill { // if specified
+                    fill: $icon-fill-active;
+                }
+                @else { // else same as font color active
+                    fill: $font-color-active;
+                }
+            }
+        }
+    }
+    @else {
+        @error "Sorry, but `#{$theme}` is not a valid value for $theme.";
+    }
+}
