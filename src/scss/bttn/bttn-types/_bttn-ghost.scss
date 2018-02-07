@@ -1,20 +1,20 @@
-// Mixin defining a floating button
+// Mixin defining a ghost button
 // Notes:
 // - All arguments default to variables set in buttons-settings.
 //
-// - Theme keys must be stored in the `$map-bttn-floating-themes` in
+// - Theme keys must be stored in the `$map-bttn-ghost-themes` in
 //   `_buttons-themes.scss`
 //
 // - If passing individual arguments you must pass null as the first argument
 // - and use name arguments unless all arguments are passed [see underloaded example].
 //
 // Examples:
-// default:         bttn-floating()
-// theme:           bttn-floating(red)
-// overloaded:      bttn-floating(null, #000, #000)
-// oveunderloaded:  bttn-floating(null, $icon-fill: #000)
+// default:         bttn-ghost()
+// theme:           bttn-ghost(red)
+// overloaded:      bttn-ghost(null, #000, #000)
+// oveunderloaded:  bttn-ghost(null, $icon-fill: #000)
 
-@mixin bttn-floating(
+@mixin bttn-ghost(
         $theme:      null,
         $size:       null,
         $font-size:  null,
@@ -24,15 +24,15 @@
         $map: null;
         // Check for theme and set args to those values
         @if $theme {
-            $map: map-get($map-bttn-floating-themes, $theme);
+            $map: map-get($map-bttn-ghost-themes, $theme);
         } @else {
-            $map: $bttn-floating-theme-defaults;
+            $map: $bttn-ghost-theme-defaults;
         }
 
         $font-color: map-get($map, font-color);
         $icon-fill: map-get($map, icon-fill);
 
-        // include shared styles of non floating button
+        // include shared styles of non ghost button
         @include bttn-base();
 
         // include button transition properties

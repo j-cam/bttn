@@ -38,7 +38,7 @@
         $icon-fill: map-get($map, icon-fill);
         $icon-fill-active: map-get($map, icon-fill-active);
 
-        // include shared styles of non floating button
+        // include shared styles of non ghost button
         @include bttn-base();
 
         // include button transition properties

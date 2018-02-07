@@ -55,9 +55,9 @@ $bttn-theme-defaults: map-get(
 $bttn-stroke-theme-defaults: map-get(
     $map-bttn-stroke-themes, 'default'
 );
-// bttn-FLOATING DEFAULT THEME
-$bttn-floating-theme-defaults: map-get(
-    $map-bttn-floating-themes, 'default'
+// bttn-ghost DEFAULT THEME
+$bttn-ghost-theme-defaults: map-get(
+    $map-bttn-ghost-themes, 'default'
 );
 // bttn-PILL DEFAULT THEME
 $bttn-pill-theme-defaults: map-get(
