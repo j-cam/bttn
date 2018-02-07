@@ -1,3 +1,3 @@
-# basscss-bttn
+# bttn
 
-A sass mixin library for generating consistent button styles.
+A sass mixin library for consistently styling buttons.
