@@ -1,9 +1,10 @@
+$bttn-namespace: "bttn" !default;
 ////////////////////////////////////////////////////////////
 // BUTTONS BASE DEFAULTS //////////////////////////////
 //////////////////////////////////////////////////////////
 
 $bttn-font-family:       "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$bttn-font-size-base:    16px; // typically 16px
+$bttn-font-size-base:    16px !default;
 $bttn-font-weight:       normal !default;
 $bttn-letter-spacing:    normal !default;
 $bttn-text-transform:    uppercase !default;
@@ -50,16 +51,16 @@ $bttn-line-height-xl:           bttn-lh(18px, 20px) !default;
 //  bttn-PRIMARY DEFAULT THEME
 $bttn-theme-defaults: map-get(
     $map-bttn-themes, 'default'
-);
+) !default;
 //  bttn-STROKE DEFAULT THEME
 $bttn-stroke-theme-defaults: map-get(
     $map-bttn-stroke-themes, 'default'
-);
+) !default;
 // bttn-ghost DEFAULT THEME
 $bttn-ghost-theme-defaults: map-get(
     $map-bttn-ghost-themes, 'default'
-);
+) !default;
 // bttn-PILL DEFAULT THEME
 $bttn-pill-theme-defaults: map-get(
     $map-bttn-pill-themes, 'default'
-);
+) !default;
