@@ -21,7 +21,7 @@
   "homepage": "https://github.com/j-cam/basscss-bttn#readme",
   "devDependencies": {
     "autoprefixer": "^7.1.4",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.29.1",
     "css-mqpacker": "^6.0.1",
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
