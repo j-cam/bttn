@@ -14,9 +14,7 @@
 @import "bttn-settings";
 // Shared styles across all bttns
 @import "bttn-utils/bttn-mxn-base";
-@import "bttn-utils/bttn-mxn-hover";
 @import "bttn-utils/bttn-mxn-size";
-@import "bttn-utils/bttn-mxn-theme";
 @import "bttn-utils/bttn-mxn-hover-transition";
 // All the visually different types
 // new types can be added as needed
@@ -24,7 +22,5 @@
 @import "bttn-types/bttn-stroke";
 @import "bttn-types/bttn-ghost";
 @import "bttn-types/bttn-pill";
-// Add placeholder extends here if needed
-// @import "bttn-extends";
 // Namespaced & ready to use css classes
 @import "bttn-classes";

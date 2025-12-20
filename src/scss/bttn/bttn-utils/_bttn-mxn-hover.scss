@@ -1,7 +1,0 @@
-@mixin bttn-hover {
-	&:focus,
-	&:active,
-	&:hover {
-		@content;
-	}
-}
