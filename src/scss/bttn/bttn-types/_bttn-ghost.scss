@@ -1,13 +1,15 @@
+@use "sass:map";
+
 // Mixin defining a ghost button
 // Notes:
 // - All arguments default to variables set in buttons-settings.
-//
+
 // - Theme keys must be stored in the `$map-bttn-ghost-themes` in
 //   `_buttons-themes.scss`
-//
+
 // - If passing individual arguments you must pass null as the first argument
 // - and use name arguments unless all arguments are passed [see underloaded example].
-//
+
 // Examples:
 // default:         bttn-ghost()
 // theme:           bttn-ghost(red)
@@ -22,21 +24,22 @@
      ) {
         // Initialize the $map variable so it can be set dynamically
         $map: null;
+
         // Check for theme and set args to those values
         @if $theme {
-            $map: map-get($map-bttn-ghost-themes, $theme);
+            $map: map.get($map-bttn-ghost-themes, $theme);
         } @else {
             $map: $bttn-ghost-theme-defaults;
         }
 
-        $font-color: map-get($map, font-color);
-        $icon-fill: map-get($map, icon-fill);
+        $font-color: map.get($map, font-color);
+        $icon-fill: map.get($map, icon-fill);
 
         // include shared styles of non ghost button
-        @include bttn-base();
+        @include bttn-base;
 
         // include button transition properties
-        @include bttn-hover-transition();
+        @include bttn-hover-transition;
 
         // xl or sm is passed through when this is called from an alias
         @include bttn-size($size, $font-size);
@@ -44,8 +47,7 @@
         @if $block {
             display: block;
             width: 100%;
-        }
-        @else {
+        } @else {
             display: inline-block;
         }
 

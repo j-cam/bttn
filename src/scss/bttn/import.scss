@@ -4,23 +4,28 @@
 //////////////////////////////////////////////////
 @import "lib/functions/functions";
 @import "lib/functions/fn-map-deep-get";
+
 // Theme maps with color variants
 // called applied via button type mixins
 @import "bttn-themes/bttn-themes";
 @import "bttn-themes/bttn-ghost-themes";
 @import "bttn-themes/bttn-stroke-themes";
 @import "bttn-themes/bttn-pill-themes";
+
 // Variables and definitions
 @import "bttn-settings";
+
 // Shared styles across all bttns
 @import "bttn-utils/bttn-mxn-base";
 @import "bttn-utils/bttn-mxn-size";
 @import "bttn-utils/bttn-mxn-hover-transition";
+
 // All the visually different types
 // new types can be added as needed
 @import "bttn-types/bttn";
 @import "bttn-types/bttn-stroke";
 @import "bttn-types/bttn-ghost";
 @import "bttn-types/bttn-pill";
+
 // Namespaced & ready to use css classes
 @import "bttn-classes";
