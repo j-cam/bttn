@@ -9,9 +9,6 @@ yarn.lock
 # Build outputs
 dist/
 build/
-docs/assets/css/
-docs/assets/maps/
-*.css.map
 
 # SCSS cache
 .sass-cache/

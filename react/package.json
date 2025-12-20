@@ -1,0 +1,59 @@
+{
+  "name": "@bttn/react",
+  "version": "1.0.0",
+  "description": "React component library for bttn - lightweight button components with zero runtime CSS",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./styles.min.css": "./dist/styles.min.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:css && npm run build:ts",
+    "build:css": "npm run build:sass && npm run build:postcss",
+    "build:sass": "sass ../src/scss/style.scss dist/styles.css --style=expanded --no-source-map",
+    "build:postcss": "postcss dist/styles.css --use autoprefixer cssnano --output dist/styles.min.css --no-map",
+    "build:ts": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "react",
+    "buttons",
+    "components",
+    "ui",
+    "css",
+    "scss"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "react": "^18.2.0",
+    "sass": "^1.83.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j-cam/bttn.git",
+    "directory": "react"
+  }
+}
