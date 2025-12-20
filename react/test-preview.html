@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@bttn/react - Test Preview</title>
+  <link rel="stylesheet" href="../dist/styles.css">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #f5f5f5;
+    }
+    .section {
+      background: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    .button-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .label {
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>@bttn/react Component Preview</h1>
+  <p>This demonstrates the compiled CSS from the React package.</p>
+
+  <div class="section">
+    <h2>Default Buttons</h2>
+    <div class="label">Sizes: sm | md | lg | xl</div>
+    <div class="button-grid">
+      <button class="bttn-sm">Small</button>
+      <button class="bttn">Medium (default)</button>
+      <button class="bttn-lg">Large</button>
+      <button class="bttn-xl">Extra Large</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Stroke Buttons</h2>
+    <div class="label">Outlined style with hover fill</div>
+    <div class="button-grid">
+      <button class="bttn-stroke-sm">Small Stroke</button>
+      <button class="bttn-stroke">Medium Stroke</button>
+      <button class="bttn-stroke-lg">Large Stroke</button>
+      <button class="bttn-stroke-xl">XL Stroke</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Ghost Buttons</h2>
+    <div class="label">Transparent background</div>
+    <div class="button-grid">
+      <button class="bttn-ghost-sm">Small Ghost</button>
+      <button class="bttn-ghost">Medium Ghost</button>
+      <button class="bttn-ghost-xl">XL Ghost</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>States</h2>
+    <div class="label">Hover, focus, and disabled states</div>
+    <div class="button-grid">
+      <button class="bttn">Hover me</button>
+      <button class="bttn-stroke">Focus me</button>
+      <button class="bttn" disabled>Disabled</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>React Usage</h2>
+    <p>These CSS classes are automatically applied by the React <code>&lt;Button&gt;</code> component:</p>
+    <pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>&lt;Button variant="stroke" size="lg"&gt;Click me&lt;/Button&gt;
+// Outputs: &lt;button class="bttn-stroke-lg"&gt;Click me&lt;/button&gt;
+
+&lt;Button size="sm"&gt;Small&lt;/Button&gt;
+// Outputs: &lt;button class="bttn-sm"&gt;Small&lt;/button&gt;
+
+&lt;Button variant="ghost"&gt;Ghost&lt;/Button&gt;
+// Outputs: &lt;button class="bttn-ghost"&gt;Ghost&lt;/button&gt;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Package Stats</h2>
+    <ul>
+      <li><strong>JavaScript:</strong> ~2KB gzipped (CommonJS + ESM)</li>
+      <li><strong>CSS:</strong> ~12KB minified, ~16KB expanded</li>
+      <li><strong>TypeScript:</strong> Full type definitions included</li>
+      <li><strong>Runtime:</strong> Zero overhead, pure className logic</li>
+    </ul>
+  </div>
+</body>
+</html>
