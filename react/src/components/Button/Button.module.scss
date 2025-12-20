@@ -1,0 +1,143 @@
+/**
+ * Button Component Styles
+ * Self-contained styles based on bttn design system
+ * All bttn SCSS source is available in ./styles/bttn/ for reference
+ */
+
+/* Base button styles */
+.button {
+  appearance: none;
+  cursor: pointer;
+  font-weight: normal;
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  overflow-wrap: break-word;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  word-break: break-word;
+  transition-property: color, background-color, border-color, fill;
+  transition-duration: 0.3s;
+  display: inline-block;
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* Default variant */
+.default {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #181d1c;
+  border-radius: 0;
+  color: #fff;
+  background-color: #181d1c;
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: #181d1c;
+    background-color: rgba(201, 192, 192, 0.92);
+    border-color: rgba(201, 192, 192, 0.92);
+  }
+}
+
+/* Stroke variant */
+.stroke {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #181d1c;
+  border-radius: 0;
+  color: #181d1c;
+  background-color: #fff;
+
+  &:visited {
+    color: #181d1c;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: #fff;
+    border-color: #181d1c;
+    background-color: #181d1c;
+  }
+}
+
+/* Ghost variant */
+.ghost {
+  border: none;
+  background: transparent;
+  color: #181d1c;
+
+  &:focus,
+  &:active,
+  &:hover {
+    color: #181d1c;
+  }
+}
+
+/* Pill variant */
+.pill {
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #181d1c;
+  color: #fff;
+  background-color: #181d1c;
+
+  &:visited {
+    color: #fff;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: #181d1c;
+    background-color: rgba(201, 192, 192, 0.92);
+    border-color: rgba(201, 192, 192, 0.92);
+  }
+}
+
+/* Size: Small */
+.sm {
+  padding: 9px 13px;
+  font-size: 0.75rem;
+  line-height: 1.17;
+}
+
+/* Size: Medium (default) */
+.md {
+  padding: 16px 20px;
+  font-size: 0.9375rem;
+  line-height: 1.13;
+}
+
+/* Size: Large */
+.lg {
+  padding: 23px 27px;
+  font-size: 1rem;
+  line-height: 1.125;
+}
+
+/* Size: Extra Large */
+.xl {
+  padding: 30px 34px;
+  font-size: 1.125rem;
+  line-height: 1.11;
+}
+
+/* Block modifier */
+.block {
+  display: block;
+  width: 100%;
+}

@@ -18,12 +18,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:css && npm run build:ts",
-    "build:css": "npm run build:sass && npm run build:postcss",
-    "build:sass": "sass ../src/scss/style.scss dist/styles.css --style=expanded --no-source-map",
-    "build:postcss": "postcss dist/styles.css --use autoprefixer cssnano --output dist/styles.min.css --no-map",
-    "build:ts": "tsup src/index.ts --format cjs,esm --dts --clean",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "npm run build:ts",
+    "build:ts": "tsup src/index.ts --format cjs,esm --dts --clean --external react",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch --external react",
     "lint": "eslint src --ext .ts,.tsx",
     "typecheck": "tsc --noEmit"
   },
@@ -44,10 +41,13 @@
     "@types/react": "^18.2.0",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
+    "esbuild-sass-plugin": "^3.3.1",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
+    "postcss-modules": "^6.0.1",
     "react": "^18.2.0",
     "sass": "^1.83.0",
+    "sass-loader": "^16.0.6",
     "tsup": "^8.0.0",
     "typescript": "^5.3.0"
   },

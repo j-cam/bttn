@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Button.module.scss';
 
 export type ButtonVariant = 'default' | 'stroke' | 'ghost' | 'pill';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
@@ -20,14 +21,14 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 /**
- * Button component that applies bttn CSS classes
+ * Button component with encapsulated styles
+ * No external CSS import needed - styles are bundled with the component
  * 
  * @example
  * ```tsx
  * import { Button } from '@bttn/react';
- * import '@bttn/react/styles.css';
  * 
- * <Button variant="stroke" size="lg" theme="primary">
+ * <Button variant="stroke" size="lg">
  *   Click me
  * </Button>
  * ```
@@ -47,29 +48,17 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const classes = React.useMemo(() => {
-      const classList: string[] = [];
+      const classList: string[] = [styles.button];
 
-      // Base class construction
-      if (variant === 'default') {
-        // Standard button: .bttn, .bttn-sm, .bttn-lg, .bttn-xl
-        if (size === 'md') {
-          classList.push('bttn');
-        } else {
-          classList.push(`bttn-${size}`);
-        }
-      } else {
-        // Variant buttons: .bttn-stroke, .bttn-stroke-sm, etc.
-        const baseClass = `bttn-${variant}`;
-        if (size === 'md') {
-          classList.push(baseClass);
-        } else {
-          classList.push(`${baseClass}-${size}`);
-        }
-      }
+      // Add variant class
+      classList.push(styles[variant]);
 
-      // Block modifier (if you add this to your CSS)
+      // Add size class
+      classList.push(styles[size]);
+
+      // Block modifier
       if (block) {
-        classList.push('bttn-block');
+        classList.push(styles.block);
       }
 
       // Custom className
