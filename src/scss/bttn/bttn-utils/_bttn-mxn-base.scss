@@ -1,14 +1,12 @@
-/*
-* Base Button Style
-* The shared default values for all ace buttons
-*
-* -- use in all new types created
-* -- should only be called directly from types
-* -- can be called inderectly using @include bttn()
-*
-*/
+/**
+ * Base Button Style
+ * Shared default values for all bttn variants.
+ *
+ * @mixin bttn-base
+ * @access private
+ */
 @mixin bttn-base {
-    appearance: none; // just in case it's a button or input
+    appearance: none; // Ensure consistent rendering across browsers
     cursor: pointer;
     font-weight: $bttn-font-weight;
     font-family: $bttn-font-family;

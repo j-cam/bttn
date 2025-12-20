@@ -1,39 +1,66 @@
 {
-  "name": "basscss-bttn",
+  "name": "bttn",
   "version": "1.0.0",
-  "description": "A SCSS mixin library for consistent button styling",
-  "main": "gulpfile.js",
+  "description": "A modern SCSS mixin library for consistent button styling with multiple themes and variants",
+  "main": "src/scss/bttn/import.scss",
+  "sass": "src/scss/bttn/import.scss",
+  "style": "docs/assets/css/style.css",
+  "files": [
+    "src/scss",
+    "docs/assets/css",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:sass": "sass src/scss/style.scss docs/assets/css/style.css --style=expanded --source-map",
+    "build:postcss": "postcss docs/assets/css/style.css --use autoprefixer cssnano --output docs/assets/css/style.min.css --map",
+    "build": "npm run build:sass && npm run build:postcss",
+    "watch:sass": "sass src/scss/style.scss docs/assets/css/style.css --watch --style=expanded --source-map",
+    "serve": "browser-sync start --server docs --files 'docs/assets/css/*.css' 'docs/*.html'",
+    "dev": "npm run build:sass && concurrently \"npm run watch:sass\" \"npm run serve\"",
+    "clean": "rimraf docs/assets/css docs/assets/maps",
+    "lint:scss": "stylelint 'src/scss/**/*.scss'",
+    "format": "prettier --write 'src/scss/**/*.scss'",
+    "test": "echo \"No tests specified yet\" && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-cam/basscss-bttn.git"
+    "url": "git+https://github.com/j-cam/bttn.git"
   },
   "keywords": [
-    "scss"
+    "scss",
+    "sass",
+    "css",
+    "buttons",
+    "button-styles",
+    "mixins",
+    "theming",
+    "ui",
+    "components",
+    "frontend",
+    "design-system"
   ],
   "author": "Jamie Campbell",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/j-cam/basscss-bttn/issues"
+    "url": "https://github.com/j-cam/bttn/issues"
   },
-  "homepage": "https://github.com/j-cam/basscss-bttn#readme",
+  "homepage": "https://github.com/j-cam/bttn#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "devDependencies": {
-    "autoprefixer": "^7.1.4",
-    "browser-sync": "^2.26.7",
-    "css-mqpacker": "^6.0.1",
-    "cssnano": "^3.10.0",
-    "gulp": "^3.9.1",
-    "gulp-cheerio": "^0.6.2",
-    "gulp-clean": "^0.3.2",
-    "gulp-notify": "^3.0.0",
-    "gulp-postcss": "^7.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^2.6.1",
-    "panini": "^1.5.1",
-    "rimraf": "^2.7.1",
-    "run-sequence": "^2.2.0"
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.0",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "sass": "^1.83.0",
+    "stylelint": "^16.12.0",
+    "stylelint-config-standard-scss": "^13.1.0"
   }
 }
