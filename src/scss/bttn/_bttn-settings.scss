@@ -1,46 +1,46 @@
-$bttn-namespace: "bttn" !default;
-////////////////////////////////////////////////////////////
-// BUTTONS BASE DEFAULTS //////////////////////////////
-//////////////////////////////////////////////////////////
+/**
+ * bttn Settings
+ * Default configuration variables for the bttn library.
+ * All variables use !default to allow for easy overrides.
+ */
 
+$bttn-namespace: "bttn" !default;
+
+// --- Typography ---
 $bttn-font-family:       "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $bttn-font-size-base:    16px !default;
 $bttn-font-weight:       normal !default;
 $bttn-letter-spacing:    normal !default;
 $bttn-text-transform:    uppercase !default;
+
+// --- Layout ---
 $bttn-display:           inline-block !default;
 
+// --- Borders & Transitions ---
 $bttn-border-width:      1px !default;
 $bttn-border-style:      solid !default;
 $bttn-border-radius:     0 !default;
 $bttn-transition-duration: .3s !default;
 
-// ------------------------------------------
-// SIZING (padding, font-size, line-height)
-// Size and Font Size
-// ------------------------------------------
+// --- Sizing (padding, font-size, line-height) ---
 
-// SM -- $size: sm
+// Small (sm)
 $bttn-padding-sm:             9px 13px !default;
-// SM -- $font-size: sm
 $bttn-font-size-sm:           bttn-rem(12px) !default;
 $bttn-line-height-sm:         bttn-lh(12px, 14px) !default;
 
-// DEFAULT: size
+// Default
 $bttn-padding:                 16px 20px !default;
-// DEFAULT: font-size
 $bttn-font-size:               bttn-rem(15px) !default;
 $bttn-line-height:             bttn-lh(15px, 17px) !default;
 
-// LG -- $size: lg
+// Large (lg)
 $bttn-padding-lg:               23px 27px !default;
-// LG -- $font-size: lg
 $bttn-font-size-lg:             bttn-rem(16px) !default;
 $bttn-line-height-lg:           bttn-lh(16px, 18px) !default;
 
-// XL -- $size: xl
+// Extra Large (xl)
 $bttn-padding-xl:               30px 34px !default;
-// XL -- $font-size: xl
 $bttn-font-size-xl:             bttn-rem(18px) !default;
 $bttn-line-height-xl:           bttn-lh(18px, 20px) !default;
 

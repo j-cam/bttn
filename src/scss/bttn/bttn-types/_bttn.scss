@@ -1,19 +1,15 @@
-// Mixin defining a primary button
-// Notes:
-// - All arguments default to variables set in buttons-settings.
-//
-// - Theme keys must be stored in the `$map-bttn-themes` in
-//   `_buttons-themes.scss`
-//
-// - If passing individual arguments you must pass null as the first argument
-// - and use name arguments unless all arguments are passed [see underloaded example].
-//
-// Examples:
-// default:     bttn() red background white text
-// theme:       bttn(red)
-// overloaded:  bttn(null, #000, #fff, #fff, #000, #e53d46, #000)
-// underloaded: bttn(null, $font-color: #000)
-
+/**
+ * Primary Button Mixin
+ * Creates a standard solid button with themeable colors and sizes.
+ *
+ * @param {String} $theme [null] - Theme name from $map-bttn-themes
+ * @param {String} $size [null] - Size variant (sm, lg, xl)
+ * @param {String} $font-size [null] - Font size variant (sm, lg, xl)
+ * @param {Boolean} $block [null] - Whether to display as a block-level element
+ *
+ * @example
+ *   .my-button { @include bttn($theme: 'primary', $size: 'lg'); }
+ */
 @mixin bttn(
         $theme:     null,
         $size:      null,
