@@ -1,52 +1,67 @@
 # bttn
 
-> A modern SCSS mixin library for consistent, themeable button styling
+> A modern button styling library for SCSS and React
 
 [![npm version](https://img.shields.io/npm/v/bttn.svg)](https://www.npmjs.com/package/bttn)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**bttn** is a flexible, lightweight SCSS mixin library that provides a consistent approach to button styling. Create beautiful, customizable buttons with multiple variants, sizes, and themes.
+**bttn** provides consistent, themeable button styling for web applications. Available as both SCSS mixins and React components.
 
-## ✨ Features
+## 📦 Packages
 
-- 🎨 **Multiple Button Types**: Standard, stroke (outlined), ghost (transparent), and pill variants
-- 📏 **Flexible Sizing**: Pre-defined sizes (sm, default, lg, xl) or custom sizes
-- 🎭 **Themeable**: Easy-to-customize color themes with hover states
-- 🧩 **Mixin-Based**: Use as mixins for maximum flexibility or as ready-to-use CSS classes
-- 🚀 **Lightweight**: No JavaScript dependencies, pure CSS
-- 🔧 **Customizable**: Override default settings with SCSS variables
-- ♿ **Accessible**: Built with accessibility best practices in mind
+### SCSS Library (Core)
+Use SCSS mixins to create custom button styles in your stylesheets.
 
-## 📦 Installation
+**Features:**
+- 🎨 Multiple button variants (default, stroke, ghost, pill)
+- 📏 Flexible sizing system
+- 🎭 Customizable themes
+- 🧩 Mixin-based or pre-built CSS classes
+- Zero runtime dependencies
 
-### npm
+[View SCSS Documentation →](./docs/SCSS.md)
+
+### React Components (`@bttn/react`)
+Lightweight React components with zero runtime CSS overhead.
+
+**Features:**
+- ⚛️ TypeScript support
+- 🪶 Tiny bundle (~2KB gzipped)
+- 🎯 Framework-agnostic CSS
+- ✨ Works with Next.js, Vite, and any React app
+
+[View React Documentation →](./react/README.md) | [Next.js Examples →](./react/NEXTJS_EXAMPLE.md)
+
+## � Quick Start
+
+### For React Projects
+
+```bash
+npm install @bttn/react
+```
+
+```tsx
+import { Button } from '@bttn/react';
+import '@bttn/react/styles.css';
+
+function App() {
+  return <Button variant="stroke" size="lg">Click me</Button>;
+}
+```
+
+### For SCSS Projects
 
 ```bash
 npm install bttn --save-dev
 ```
 
-### yarn
-
-```bash
-yarn add bttn --dev
-```
-
-## 🚀 Quick Start
-
-### Import into your SCSS
-
 ```scss
-// Import the entire library
 @import 'node_modules/bttn/src/scss/bttn/import';
 
-// Or import just what you need
-@import 'node_modules/bttn/src/scss/bttn/bttn-settings';
-@import 'node_modules/bttn/src/scss/bttn/bttn-utils/bttn-mxn-base';
+.my-button {
+  @include bttn($theme: 'primary', $size: 'lg');
+}
 ```
-
-### Using CSS Classes
-
-If you import the full library, you get ready-to-use CSS classes:
 
 ```html
 <!-- Standard buttons -->
