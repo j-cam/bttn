@@ -9,6 +9,7 @@ yarn.lock
 # Build outputs
 dist/
 build/
+storybook-static/
 
 # SCSS cache
 .sass-cache/
