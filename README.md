@@ -3,6 +3,7 @@
 > A modern button styling library for SCSS and React
 
 [![npm version](https://img.shields.io/npm/v/bttn.svg)](https://www.npmjs.com/package/bttn)
+[![bttn-react version](https://img.shields.io/npm/v/bttn-react.svg)](https://www.npmjs.com/package/bttn-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **bttn** provides consistent, themeable button styling for web applications. Available as both SCSS mixins and React components.
