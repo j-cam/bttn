@@ -1,0 +1,113 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from './Button';
+
+const meta = {
+  title: 'Components/Button',
+  component: Button,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['default', 'stroke', 'ghost', 'pill'],
+      description: 'Button style variant',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl'],
+      description: 'Button size',
+    },
+    block: {
+      control: 'boolean',
+      description: 'Whether the button should take full width',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the button is disabled',
+    },
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+// Default button
+export const Default: Story = {
+  args: {
+    children: 'Button',
+    variant: 'default',
+    size: 'md',
+  },
+};
+
+// Stroke variant
+export const Stroke: Story = {
+  args: {
+    children: 'Stroke Button',
+    variant: 'stroke',
+    size: 'md',
+  },
+};
+
+// Ghost variant
+export const Ghost: Story = {
+  args: {
+    children: 'Ghost Button',
+    variant: 'ghost',
+    size: 'md',
+  },
+};
+
+// Pill variant
+export const Pill: Story = {
+  args: {
+    children: 'Pill Button',
+    variant: 'pill',
+    size: 'md',
+  },
+};
+
+// Small size
+export const Small: Story = {
+  args: {
+    children: 'Small Button',
+    size: 'sm',
+  },
+};
+
+// Large size
+export const Large: Story = {
+  args: {
+    children: 'Large Button',
+    size: 'lg',
+  },
+};
+
+// Extra Large
+export const ExtraLarge: Story = {
+  args: {
+    children: 'Extra Large Button',
+    size: 'xl',
+  },
+};
+
+// Disabled
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled Button',
+    disabled: true,
+  },
+};
+
+// Block (full width)
+export const Block: Story = {
+  args: {
+    children: 'Block Button',
+    block: true,
+  },
+  parameters: {
+    layout: 'padded',
+  },
+};

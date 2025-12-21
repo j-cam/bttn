@@ -1,6 +1,15 @@
 # @bttn/react
 
-A lightweight React component library for bttn buttons. Zero runtime CSS overhead - just smart className composition.
+A lightweight React component library for bttn buttons with **encapsulated CSS Modules**. Each component bundles its own styles - no separate CSS import needed!
+
+## ✨ Key Features
+
+- **🎨 Self-Contained**: Styles are bundled with each component
+- **📦 Zero Config**: No need to import separate CSS files
+- **🔒 Scoped Styles**: CSS Modules prevent style conflicts
+- **⚛️ TypeScript**: Full type safety included
+- **🪶 Lightweight**: ~3KB total (JS + CSS)
+- **🎯 Encapsulated Architecture**: Each component contains its own SCSS source
 
 ## Installation
 
@@ -16,17 +25,7 @@ pnpm add @bttn/react
 
 ### Basic Setup
 
-Import the CSS once in your app (typically in your root layout or `_app.tsx`):
-
-```tsx
-// app/layout.tsx (Next.js App Router)
-import '@bttn/react/styles.css';
-
-// or use the minified version
-import '@bttn/react/styles.min.css';
-```
-
-### Using the Button Component
+**No CSS import needed!** Just import the component:
 
 ```tsx
 import { Button } from '@bttn/react';
@@ -34,10 +33,10 @@ import { Button } from '@bttn/react';
 export default function MyComponent() {
   return (
     <div>
-      {/* Default button */}
+      {/* Styles are automatically included */}
       <Button>Click me</Button>
-
-      {/* Stroke variant */}
+      
+      {/* Different variants */}
       <Button variant="stroke" size="lg">
         Large Stroke Button
       </Button>
@@ -46,23 +45,28 @@ export default function MyComponent() {
       <Button variant="ghost" size="sm">
         Small Ghost Button
       </Button>
-
-      {/* With onClick handler */}
-      <Button
-        variant="stroke"
-        onClick={() => console.log('Clicked!')}
-      >
-        Interactive Button
-      </Button>
-
-      {/* Custom className */}
-      <Button className="my-custom-class">
-        Custom Styled
-      </Button>
     </div>
   );
 }
 ```
+
+## Component Architecture
+
+Each component follows this self-contained structure:
+
+```
+Button/
+├── Button.tsx              # Component logic
+├── Button.module.scss      # Component styles (CSS Modules)
+├── index.ts                # Clean exports
+└── styles/
+    └── bttn/               # Full bttn SCSS source (for reference/customization)
+```
+
+The `styles/bttn/` folder contains the complete bttn SCSS library, allowing you to:
+- Reference the original design system
+- Create custom variants
+- Understand the styling approach
 
 ## API Reference
 
@@ -129,6 +133,34 @@ const MyButton: React.FC<{ customProp: string }> = ({ customProp }) => {
   return <Button {...buttonProps} />;
 };
 ```
+
+## Development
+
+### Running Storybook
+
+This project uses Storybook for component development and documentation.
+
+```bash
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start Storybook dev server
+npm run storybook
+```
+
+Storybook will open at http://localhost:6006/
+
+### View Live Demo
+
+See all component variants in action: https://j-cam.github.io/bttn/
+
+### Building Storybook
+
+```bash
+npm run build-storybook
+```
+
+This creates a static build in `storybook-static/` that can be deployed anywhere.
 
 ## License
 
