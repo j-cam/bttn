@@ -1,4 +1,4 @@
-# @bttn/react
+# bttn-react
 
 A lightweight React component library for bttn buttons with **encapsulated CSS Modules**. Each component bundles its own styles - no separate CSS import needed!
 
@@ -14,11 +14,11 @@ A lightweight React component library for bttn buttons with **encapsulated CSS M
 ## Installation
 
 ```bash
-npm install @bttn/react
+npm install bttn-react
 # or
-yarn add @bttn/react
+yarn add bttn-react
 # or
-pnpm add @bttn/react
+pnpm add bttn-react
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ pnpm add @bttn/react
 **No CSS import needed!** Just import the component:
 
 ```tsx
-import { Button } from '@bttn/react';
+import { Button } from 'bttn-react';
 
 export default function MyComponent() {
   return (
@@ -88,7 +88,7 @@ All standard HTML button attributes are also supported (`onClick`, `disabled`, `
 
 ```tsx
 // app/layout.tsx
-import '@bttn/react/styles.css';
+import 'bttn-react/styles.css';
 import './globals.css';
 
 export default function RootLayout({
@@ -108,7 +108,7 @@ export default function RootLayout({
 
 ```tsx
 // pages/_app.tsx
-import '@bttn/react/styles.css';
+import 'bttn-react/styles.css';
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -121,7 +121,7 @@ export default function App({ Component, pageProps }: AppProps) {
 This package is written in TypeScript and includes type definitions out of the box.
 
 ```tsx
-import { Button, ButtonProps } from '@bttn/react';
+import { Button, ButtonProps } from 'bttn-react';
 
 const MyButton: React.FC<{ customProp: string }> = ({ customProp }) => {
   const buttonProps: ButtonProps = {

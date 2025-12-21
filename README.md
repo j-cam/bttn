@@ -23,7 +23,7 @@ Use SCSS mixins to create custom button styles in your stylesheets.
 
 [View SCSS Documentation →](./docs/SCSS.md)
 
-### React Components (`@bttn/react`)
+### React Components (`bttn-react`)
 Lightweight React components with zero runtime CSS overhead.
 
 **Features:**
@@ -39,12 +39,12 @@ Lightweight React components with zero runtime CSS overhead.
 ### For React Projects
 
 ```bash
-npm install @bttn/react
+npm install bttn-react
 ```
 
 ```tsx
-import { Button } from '@bttn/react';
-import '@bttn/react/styles.css';
+import { Button } from 'bttn-react';
+import 'bttn-react/styles.css';
 
 function App() {
   return <Button variant="stroke" size="lg">Click me</Button>;
