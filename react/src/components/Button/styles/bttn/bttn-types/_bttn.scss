@@ -1,0 +1,101 @@
+@use "sass:map";
+
+/**
+ * Primary Button Mixin
+ * Creates a standard solid button with themeable colors and sizes.
+ *
+ * @param {String} $theme [null] - Theme name from $map-bttn-themes
+ * @param {String} $size [null] - Size variant (sm, lg, xl)
+ * @param {String} $font-size [null] - Font size variant (sm, lg, xl)
+ * @param {Boolean} $block [null] - Whether to display as a block-level element
+ *
+ * @example
+ *   .my-button { @include bttn($theme: 'primary', $size: 'lg'); }
+ */
+@mixin bttn(
+        $theme:     null,
+        $size:      null,
+        $font-size: null,
+        $block:     null
+    ) {
+        // Initialize the $map variable so it can be set dynamically
+        $map: null;
+
+        // Check for theme and set args to those values
+        @if $theme {
+            $map: map.get($map-bttn-themes, $theme);
+        } @else {
+            $map: $bttn-theme-defaults;
+        }
+
+        $bg-color: map.get($map, bg-color);
+        $bg-color-active: map.get($map, bg-color-active);
+        $border-color: map.get($map, bg-color);
+        $border-color-active: map.get($map, bg-color-active);
+        $font-color: map.get($map, font-color);
+        $font-color-active: map.get($map, font-color-active);
+        $icon-fill: map.get($map, icon-fill);
+        $icon-fill-active: map.get($map, icon-fill-active);
+
+        // include shared styles of non ghost button
+        @include bttn-base;
+
+        // include button transition properties
+        @include bttn-hover-transition;
+
+        // xl or sm is passed through when this is called from an alias
+        @include bttn-size($size, $font-size);
+
+        @if $block == true {
+            display: block;
+            width: 100%;
+        } @else {
+            display: inline-block;
+        }
+
+        // add border defs
+        border-style: $bttn-border-style;
+        border-width: $bttn-border-width;
+        border-color: $border-color;
+        border-radius: $bttn-border-radius;
+        color: $font-color;
+        background-color: $bg-color;
+
+        .icon {
+            @if $icon-fill { // if specified
+                fill: $icon-fill;
+            } @else { // else same as font color
+                fill: $font-color;
+            }
+        }
+
+        &:visited {
+            color: $font-color;
+        }
+
+        &:active,
+        &:focus,
+        &:hover {
+            color: $font-color-active;
+            background-color: $bg-color-active;
+            border-color: $border-color-active;
+
+            .icon {
+                @if $icon-fill { // if specified
+                    fill: $icon-fill-active;
+                } @else { // else same as font color active
+                    fill: $font-color-active;
+                }
+            }
+        }
+
+        // Disabled State
+
+        // The disabled state uses the class .disabled, is-disabled,
+        // and the form attribute disabled="disabled".
+        // The use of !important is only added because this is a state
+        // that must be applied to all buttons when in a disabled state.
+        // &.disabled,
+        // &.is-disabled,
+        // &:disabled { }
+}
