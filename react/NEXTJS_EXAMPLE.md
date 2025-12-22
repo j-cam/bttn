@@ -1,13 +1,13 @@
-# Using bttn-react with Next.js
+# Using @j-cam/bttn-react with Next.js
 
-**bttn-react** is fully compatible with Next.js (both App Router and Pages Router). Since the components use CSS Modules and are marked with `"use client"`, they work seamlessly in modern Next.js environments.
+**@j-cam/bttn-react** is fully compatible with Next.js (both App Router and Pages Router). Since the components use CSS Modules and are marked with `"use client"`, they work seamlessly in modern Next.js environments.
 
 ## 🛠️ Setup
 
-### 1. Install the package
+### 1. Install the packages
 
 ```bash
-npm install bttn-react
+npm install @j-cam/bttn-react @j-cam/bttn
 ```
 
 ### 2. Global Styles
@@ -17,7 +17,7 @@ Import the core CSS in your root layout or `_app.tsx`.
 **App Router (`app/layout.tsx`):**
 
 ```tsx
-import 'bttn-react/styles.css';
+import '@j-cam/bttn/styles.css';
 import './globals.css';
 
 export default function RootLayout({ children }) {
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
 ### Basic Button
 
 ```tsx
-import { Button } from 'bttn-react';
+import { Button } from '@j-cam/bttn-react';
 
 export default function Page() {
   return (
@@ -50,7 +50,7 @@ export default function Page() {
 The `Button` component is polymorphic, making it easy to integrate with the Next.js `Link` component for client-side navigation.
 
 ```tsx
-import { Button } from 'bttn-react';
+import { Button } from '@j-cam/bttn-react';
 import Link from 'next/link';
 
 export default function Navigation() {

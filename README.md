@@ -3,7 +3,7 @@
 > A modern button styling library for SCSS and React
 
 [![npm version](https://img.shields.io/npm/v/@j-cam/bttn.svg)](https://www.npmjs.com/package/@j-cam/bttn)
-[![bttn-react version](https://img.shields.io/npm/v/bttn-react.svg)](https://www.npmjs.com/package/bttn-react)
+[![bttn-react version](https://img.shields.io/npm/v/@j-cam/bttn-react.svg)](https://www.npmjs.com/package/@j-cam/bttn-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **bttn** provides consistent, themeable button styling for web applications. Available as both SCSS mixins and React components.
@@ -25,7 +25,7 @@ Use SCSS mixins to create custom button styles in your stylesheets.
 
 [View SCSS Documentation →](./docs/SCSS.md)
 
-### React Components (`bttn-react`)
+### React Components (`@j-cam/bttn-react`)
 Lightweight React components with zero redundancy, consuming the core SCSS engine directly.
 
 **Features:**
@@ -42,12 +42,12 @@ Lightweight React components with zero redundancy, consuming the core SCSS engin
 ### For React Projects
 
 ```bash
-npm install bttn-react
+npm install @j-cam/bttn-react
 ```
 
 ```tsx
-import { Button } from 'bttn-react';
-import 'bttn-react/styles.css';
+import { Button } from '@j-cam/bttn-react';
+import '@j-cam/bttn-react/styles.css';
 
 function App() {
   return (

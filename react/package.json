@@ -1,5 +1,5 @@
 {
-  "name": "bttn-react",
+  "name": "@j-cam/bttn-react",
   "version": "1.2.0",
   "description": "React component library for bttn - lightweight button components with zero runtime CSS",
   "main": "dist/index.js",

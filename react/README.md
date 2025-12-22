@@ -1,4 +1,4 @@
-# bttn-react
+# @j-cam/bttn-react
 
 A lightweight, polymorphic React component library for bttn buttons. Powered by a **CSS Variable First** architecture and a centralized SCSS engine.
 
@@ -15,7 +15,23 @@ A lightweight, polymorphic React component library for bttn buttons. Powered by 
 ## Installation
 
 ```bash
-npm install bttn-react
+npm install @j-cam/bttn-react @j-cam/bttn
+# or
+yarn add @j-cam/bttn-react @j-cam/bttn
+```
+
+## Usage
+
+### 1. Import Styles
+Import the CSS in your root file (e.g., `App.tsx` or `_app.tsx`):
+
+```javascript
+import '@j-cam/bttn/styles.css';
+```
+
+### 2. Use the Component
+```tsx
+import { Button } from '@j-cam/bttn-react';
 ```
 
 ## Usage
@@ -25,8 +41,8 @@ npm install bttn-react
 Import the component and the required CSS file:
 
 ```tsx
-import { Button } from 'bttn-react';
-import 'bttn-react/styles.css'; // Required CSS import
+import { Button } from '@j-cam/bttn-react';
+import '@j-cam/bttn/styles.css'; // Required CSS import
 
 export default function MyComponent() {
   return (
@@ -107,7 +123,7 @@ All standard HTML attributes are supported based on the rendered element type.
 
 ```tsx
 // app/layout.tsx
-import 'bttn-react/styles.css';
+import '@j-cam/bttn/styles.css';
 import './globals.css';
 
 export default function RootLayout({
@@ -127,7 +143,7 @@ export default function RootLayout({
 
 ```tsx
 // pages/_app.tsx
-import 'bttn-react/styles.css';
+import '@j-cam/bttn/styles.css';
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -140,7 +156,7 @@ export default function App({ Component, pageProps }: AppProps) {
 This package is written in TypeScript and includes type definitions out of the box.
 
 ```tsx
-import { Button, ButtonProps } from 'bttn-react';
+import { Button, ButtonProps } from '@j-cam/bttn-react';
 
 const MyButton: React.FC<{ customProp: string }> = ({ customProp }) => {
   const buttonProps: ButtonProps = {
