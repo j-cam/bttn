@@ -15,7 +15,9 @@
     "./styles.min.css": "./dist/styles.min.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
   "scripts": {
     "build": "npm run build:ts",

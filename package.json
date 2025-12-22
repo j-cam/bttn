@@ -24,6 +24,9 @@
     "storybook": "npm run storybook --prefix react",
     "dev:react": "npm run dev --prefix react",
     "build:react": "npm run build --prefix react",
+    "publish:scss": "npm run build && npm publish",
+    "publish:react": "npm run build:react && npm publish ./react",
+    "publish:all": "npm run publish:scss && npm run publish:react",
     "test": "echo \"No tests specified yet\" && exit 0"
   },
   "repository": {
