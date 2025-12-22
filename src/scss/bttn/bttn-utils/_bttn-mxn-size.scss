@@ -15,6 +15,10 @@
 		padding: $bttn-padding-sm;
 
 		// @debug 'bttn $size = sm';
+	} @else if $size == none {
+		padding: 0;
+
+		// @debug 'bttn $size = none';
 	} @else {
 		padding: $bttn-padding;
 
