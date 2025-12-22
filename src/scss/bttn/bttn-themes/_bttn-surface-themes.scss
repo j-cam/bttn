@@ -47,5 +47,4 @@ $map-bttn-surface-themes: (
     font-color-active: #842029,
   ),
 );
-
 $bttn-surface-theme-defaults: map.get($map-bttn-surface-themes, default);

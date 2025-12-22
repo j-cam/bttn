@@ -22,7 +22,7 @@ $bttn-display: inline-block !default;
 $bttn-border-width: 1px !default;
 $bttn-border-style: solid !default;
 $bttn-border-radius: 0 !default;
-$bttn-transition-duration: .3s !default;
+$bttn-transition-duration: 0.3s !default;
 
 // --- Sizing (padding, font-size, line-height) ---
 
@@ -51,21 +51,13 @@ $bttn-line-height-xl: bttn-lh(18px, 20px) !default;
 // ------------------------------------------
 
 //  bttn-PRIMARY DEFAULT THEME
-$bttn-theme-defaults: map.get(
-    $map-bttn-themes, 'default'
-) !default;
+$bttn-theme-defaults: map.get($map-bttn-themes, "default") !default;
 
 //  bttn-STROKE DEFAULT THEME
-$bttn-stroke-theme-defaults: map.get(
-    $map-bttn-stroke-themes, 'default'
-) !default;
+$bttn-stroke-theme-defaults: map.get($map-bttn-stroke-themes, "default") !default;
 
 // bttn-ghost DEFAULT THEME
-$bttn-ghost-theme-defaults: map.get(
-    $map-bttn-ghost-themes, 'default'
-) !default;
+$bttn-ghost-theme-defaults: map.get($map-bttn-ghost-themes, "default") !default;
 
 // bttn-PILL DEFAULT THEME
-$bttn-pill-theme-defaults: map.get(
-    $map-bttn-pill-themes, 'default'
-) !default;
+$bttn-pill-theme-defaults: map.get($map-bttn-pill-themes, "default") !default;

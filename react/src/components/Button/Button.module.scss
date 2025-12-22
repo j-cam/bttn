@@ -55,47 +55,79 @@
 
 /* Themes */
 .primary {
-  &.default { @include bttn($theme: primary); }
-  &.stroke { @include bttn-stroke($theme: primary); }
+  &.default {
+    @include bttn($theme: primary);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: primary);
+  }
 }
 
 .success {
-  &.default { @include bttn($theme: success); }
-  &.stroke { @include bttn-stroke($theme: success); }
+  &.default {
+    @include bttn($theme: success);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: success);
+  }
 }
 
 .warning {
-  &.default { @include bttn($theme: warning); }
-  &.stroke { @include bttn-stroke($theme: warning); }
+  &.default {
+    @include bttn($theme: warning);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: warning);
+  }
 }
 
 .danger {
-  &.default { @include bttn($theme: danger); }
-  &.stroke { @include bttn-stroke($theme: danger); }
+  &.default {
+    @include bttn($theme: danger);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: danger);
+  }
 }
 
 .neon {
-  &.default { @include bttn($theme: neon); }
-  &.stroke { @include bttn-stroke($theme: neon); }
+  &.default {
+    @include bttn($theme: neon);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: neon);
+  }
 }
 
 .royal {
-  &.default { @include bttn($theme: royal); }
-  &.stroke { @include bttn-stroke($theme: royal); }
+  &.default {
+    @include bttn($theme: royal);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: royal);
+  }
 }
 
 .ocean {
-  &.default { @include bttn($theme: ocean); }
-  &.stroke { @include bttn-stroke($theme: ocean); }
+  &.default {
+    @include bttn($theme: ocean);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: ocean);
+  }
 }
 
 .carbon {
-  &.default { @include bttn($theme: carbon); }
-  &.stroke { @include bttn-stroke($theme: carbon); }
+  &.default {
+    @include bttn($theme: carbon);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: carbon);
+  }
 }
 
 .glass {
-  &.default { 
+  &.default {
     @include bttn($theme: glass);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

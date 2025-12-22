@@ -7,42 +7,52 @@ export type ButtonVariant = 'default' | 'stroke' | 'ghost' | 'pill' | 'surface';
  * 'none' removes internal padding, useful for card-like behavior or custom layouts.
  */
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl' | 'none';
-export type ButtonTheme = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'neon' | 'royal' | 'ocean' | 'carbon' | 'glass';
+export type ButtonTheme =
+  | 'default'
+  | 'primary'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'neon'
+  | 'royal'
+  | 'ocean'
+  | 'carbon'
+  | 'glass';
 
 /**
  * Props for the Button component.
  * Extends standard HTML attributes but omits 'size' to avoid conflict with our custom size prop.
  */
 export interface ButtonProps extends Omit<React.AllHTMLAttributes<HTMLElement>, 'size'> {
-  /** 
+  /**
    * Visual style variant.
    * @default 'default'
    */
   variant?: ButtonVariant;
-  /** 
-   * Button size. 
+  /**
+   * Button size.
    * @default 'md'
    */
   size?: ButtonSize;
-  /** 
-   * Color theme. 
+  /**
+   * Color theme.
    * Note: Only applies to 'default' and 'stroke' variants in the current SCSS implementation.
    */
   theme?: ButtonTheme;
-  /** 
+  /**
    * If true, the button will take up the full width of its container.
    * @default false
    */
   block?: boolean;
-  /** 
+  /**
    * If provided, the component will render as an anchor (<a>) tag.
    */
   href?: string;
-  /** 
+  /**
    * The content to be rendered inside the button.
    */
   children: React.ReactNode;
-  /** 
+  /**
    * Explicitly override the rendered HTML element.
    * If not provided, defaults to 'a' if href is present, otherwise 'button'.
    */

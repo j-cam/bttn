@@ -4,28 +4,19 @@
  * Stroke Mixin
  * Creates a button with a border and transparent background using the Factory Pattern.
  */
-@mixin bttn-stroke(
-    $theme:             null,
-    $size:              null,
-    $font-size:         null,
-    $block:             null
-) {
-    // Initialize the $map dynamically
-    $map: if($theme, map.get($map-bttn-stroke-themes, $theme), $bttn-stroke-theme-defaults);
+@mixin bttn-stroke($theme: null, $size: null, $font-size: null, $block: null) {
+  // Initialize the $map dynamically
+  $map: if($theme, map.get($map-bttn-stroke-themes, $theme), $bttn-stroke-theme-defaults);
 
-    // Define layout overrides for the factory
-    $overrides: (
-        width: if($block == true, 100%, auto),
-        display: if($block == true, block, inline-block)
-    );
+  // Define layout overrides for the factory
+  $overrides: (
+    width: if($block == true, 100%, auto),
+    display: if($block == true, block, inline-block),
+  );
 
-    // Use the Factory to construct the component
-    @include bttn-factory($map, $overrides);
+  // Use the Factory to construct the component
+  @include bttn-factory($map, $overrides);
 
-    // Standard sizing logic
-    @include bttn-size($size, $font-size);
-}
-        // &.disabled,
-        // &.is-disabled,
-        // &:disabled { }
+  // Standard sizing logic
+  @include bttn-size($size, $font-size);
 }
