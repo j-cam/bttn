@@ -1,67 +1,29 @@
 @use "sass:map";
 
-// Mixin defining a ghost button
-// Notes:
-// - All arguments default to variables set in buttons-settings.
-
-// - Theme keys must be stored in the `$map-bttn-ghost-themes` in
-//   `_buttons-themes.scss`
-
-// - If passing individual arguments you must pass null as the first argument
-// - and use name arguments unless all arguments are passed [see underloaded example].
-
-// Examples:
-// default:         bttn-ghost()
-// theme:           bttn-ghost(red)
-// overloaded:      bttn-ghost(null, #000, #000)
-// oveunderloaded:  bttn-ghost(null, $icon-fill: #000)
-
+/**
+ * Ghost Mixin
+ * Creates a transparent button without borders using the Factory Pattern.
+ */
 @mixin bttn-ghost(
-        $theme:      null,
-        $size:       null,
-        $font-size:  null,
-        $block:      null
-     ) {
-        // Initialize the $map variable so it can be set dynamically
-        $map: null;
+    $theme:      null,
+    $size:       null,
+    $font-size:  null,
+    $block:      null
+) {
+    // Initialize the $map dynamically
+    $map: if($theme, map.get($map-bttn-ghost-themes, $theme), $bttn-ghost-theme-defaults);
 
-        // Check for theme and set args to those values
-        @if $theme {
-            $map: map.get($map-bttn-ghost-themes, $theme);
-        } @else {
-            $map: $bttn-ghost-theme-defaults;
-        }
+    // Define layout overrides for the factory
+    $overrides: (
+        border: none,
+        background-color: transparent,
+        width: if($block == true, 100%, auto),
+        display: if($block == true, block, inline-block)
+    );
 
-        $font-color: map.get($map, font-color);
-        $icon-fill: map.get($map, icon-fill);
+    // Use the Factory to construct the component
+    @include bttn-factory($map, $overrides);
 
-        // include shared styles of non ghost button
-        @include bttn-base;
-
-        // include button transition properties
-        @include bttn-hover-transition;
-
-        // xl or sm is passed through when this is called from an alias
-        @include bttn-size($size, $font-size);
-
-        @if $block {
-            display: block;
-            width: 100%;
-        } @else {
-            display: inline-block;
-        }
-
-        border: none;
-        background: transparent;
-        color: $font-color;
-
-        .icon {
-            fill: $icon-fill;
-        }
-
-        &:focus,
-        &:active,
-        &:hover {
-            color: $font-color;
-        }
+    // Standard sizing logic
+    @include bttn-size($size, $font-size);
 }
