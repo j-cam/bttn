@@ -1,7 +1,7 @@
 {
   "name": "bttn",
   "version": "1.0.0",
-  "description": "A modern SCSS mixin library for consistent button styling with multiple themes and variants",
+  "description": "A modern SCSS library providing mixins, themes, and utilities for consistent button styling, part of the bttn button styling system for SCSS and React",
   "main": "src/scss/bttn/import.scss",
   "sass": "src/scss/bttn/import.scss",
   "style": "docs/assets/css/style.css",
