@@ -1,0 +1,71 @@
+/**
+ * bttn Settings
+ * Default configuration variables for the bttn library.
+ * All variables use !default to allow for easy overrides.
+ */
+
+@use "sass:map";
+
+$bttn-namespace: "bttn" !default;
+
+// --- Typography ---
+$bttn-font-family: "Helvetica Neue", helvetica, arial, sans-serif !default;
+$bttn-font-size-base: 16px !default;
+$bttn-font-weight: normal !default;
+$bttn-letter-spacing: normal !default;
+$bttn-text-transform: uppercase !default;
+
+// --- Layout ---
+$bttn-display: inline-block !default;
+
+// --- Borders & Transitions ---
+$bttn-border-width: 1px !default;
+$bttn-border-style: solid !default;
+$bttn-border-radius: 0 !default;
+$bttn-transition-duration: .3s !default;
+
+// --- Sizing (padding, font-size, line-height) ---
+
+// Small (sm)
+$bttn-padding-sm: 9px 13px !default;
+$bttn-font-size-sm: bttn-rem(12px) !default;
+$bttn-line-height-sm: bttn-lh(12px, 14px) !default;
+
+// Default
+$bttn-padding: 16px 20px !default;
+$bttn-font-size: bttn-rem(15px) !default;
+$bttn-line-height: bttn-lh(15px, 17px) !default;
+
+// Large (lg)
+$bttn-padding-lg: 23px 27px !default;
+$bttn-font-size-lg: bttn-rem(16px) !default;
+$bttn-line-height-lg: bttn-lh(16px, 18px) !default;
+
+// Extra Large (xl)
+$bttn-padding-xl: 30px 34px !default;
+$bttn-font-size-xl: bttn-rem(18px) !default;
+$bttn-line-height-xl: bttn-lh(18px, 20px) !default;
+
+// ------------------------------------------
+// DEFAULT THEMES FOR EACH BUTTON TYPE
+// ------------------------------------------
+
+//  bttn-PRIMARY DEFAULT THEME
+$bttn-theme-defaults: map.get(
+    $map-bttn-themes, 'default'
+) !default;
+
+//  bttn-STROKE DEFAULT THEME
+$bttn-stroke-theme-defaults: map.get(
+    $map-bttn-stroke-themes, 'default'
+) !default;
+
+// bttn-ghost DEFAULT THEME
+$bttn-ghost-theme-defaults: map.get(
+    $map-bttn-ghost-themes, 'default'
+) !default;
+
+// bttn-PILL DEFAULT THEME
+$bttn-pill-theme-defaults: map.get(
+    $map-bttn-pill-themes, 'default'
+) !default;

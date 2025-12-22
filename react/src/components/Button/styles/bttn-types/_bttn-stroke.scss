@@ -1,17 +1,17 @@
 @use "sass:map";
 
 /**
- * Primary Button Mixin
- * Creates a standard solid button with themeable colors and sizes using the Factory Pattern.
+ * Stroke Mixin
+ * Creates a button with a border and transparent background using the Factory Pattern.
  */
-@mixin bttn(
-    $theme:     null,
-    $size:      null,
-    $font-size: null,
-    $block:     null
+@mixin bttn-stroke(
+    $theme:             null,
+    $size:              null,
+    $font-size:         null,
+    $block:             null
 ) {
     // Initialize the $map dynamically
-    $map: if($theme, map.get($map-bttn-themes, $theme), $bttn-theme-defaults);
+    $map: if($theme, map.get($map-bttn-stroke-themes, $theme), $bttn-stroke-theme-defaults);
 
     // Define layout overrides for the factory
     $overrides: (
@@ -24,4 +24,8 @@
 
     // Standard sizing logic
     @include bttn-size($size, $font-size);
+}
+        // &.disabled,
+        // &.is-disabled,
+        // &:disabled { }
 }

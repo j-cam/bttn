@@ -138,6 +138,22 @@ export const Surface: Story = {
   },
 };
 
+// Surface as a Card
+export const SurfaceCard: Story = {
+  args: {
+    variant: 'surface',
+    size: 'none',
+    as: 'div',
+    children: (
+      <div style={{ padding: '20px', textAlign: 'left' }}>
+        <h3 style={{ marginTop: 0 }}>Card Title</h3>
+        <p>This is a surface variant used as a card container with size="none".</p>
+        <Button variant="pill" size="sm">Action</Button>
+      </div>
+    ),
+  },
+};
+
 // No padding size (card-like behavior)
 export const NoPadding: Story = {
   args: {
@@ -155,4 +171,33 @@ export const CustomElement: Story = {
     variant: 'surface',
     onClick: () => alert('Clicked!'),
   },
+};
+
+// Size None
+export const SizeNone: Story = {
+  args: {
+    children: 'No Padding Button',
+    size: 'none',
+    variant: 'stroke',
+  },
+};
+
+// Themes
+export const Themes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <Button theme="primary">Primary</Button>
+        <Button theme="success">Success</Button>
+        <Button theme="warning">Warning</Button>
+        <Button theme="danger">Danger</Button>
+      </div>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <Button variant="stroke" theme="primary">Primary Stroke</Button>
+        <Button variant="stroke" theme="success">Success Stroke</Button>
+        <Button variant="stroke" theme="warning">Warning Stroke</Button>
+        <Button variant="stroke" theme="danger">Danger Stroke</Button>
+      </div>
+    </div>
+  ),
 };

@@ -77,7 +77,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
   (
     {
       variant = 'default',
-      size = 'md',
+      size: sizeProp,
       theme,
       block,
       className = '',
@@ -89,6 +89,12 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
     ref
   ) => {
     /**
+     * Determine the size based on variant if not explicitly provided.
+     * Surface variant defaults to 'none' (no padding).
+     */
+    const size = sizeProp || (variant === 'surface' ? 'none' : 'md');
+
+    /**
      * Memoized class computation to prevent unnecessary recalculations.
      */
     const classes = React.useMemo(() => {
@@ -97,9 +103,13 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       // Add variant class (e.g., .default, .stroke, .ghost, .pill, .surface)
       if (variant) classList.push(styles[variant]);
 
-      // Add size class (e.g., .sm, .md, .lg, .xl)
-      // We skip 'none' as it's intended to remove standard button padding
-      if (size && size !== 'none') {
+      // Add theme class (e.g., .primary, .success, .warning, .danger)
+      if (theme && theme !== 'default') {
+        classList.push(styles[theme]);
+      }
+
+      // Add size class (e.g., .sm, .md, .lg, .xl, .none)
+      if (size) {
         classList.push(styles[size]);
       }
 

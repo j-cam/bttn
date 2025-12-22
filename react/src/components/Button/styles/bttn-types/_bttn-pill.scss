@@ -25,3 +25,8 @@
     // Standard sizing logic
     @include bttn-size($size, $font-size);
 }
+        // that must be applied to all buttons when in a disabled state.
+        // &.disabled,
+        // &.is-disabled,
+        // &:disabled { }
+}
