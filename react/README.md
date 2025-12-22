@@ -95,6 +95,7 @@ The `styles/bttn/` folder contains the complete bttn SCSS library, allowing you 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `variant` | `'default' \| 'stroke' \| 'ghost' \| 'pill' \| 'surface'` | `'default'` | Button style variant |
+| `theme` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'neon' \| 'royal' \| 'ocean' \| 'carbon' \| 'glass'` | `'default'` | Color theme |
 | `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'none'` | `'md'` | Button size - `'none'` removes padding for card-like behavior |
 | `block` | `boolean` | `false` | Whether button should take full width |
 | `className` | `string` | `''` | Additional CSS classes to apply |

@@ -11,6 +11,7 @@
 @import "bttn-themes/bttn-ghost-themes";
 @import "bttn-themes/bttn-stroke-themes";
 @import "bttn-themes/bttn-pill-themes";
+@import "bttn-themes/bttn-surface-themes";
 
 // Variables and definitions
 @import "bttn-settings";
@@ -19,6 +20,7 @@
 @import "bttn-utils/bttn-mxn-base";
 @import "bttn-utils/bttn-mxn-size";
 @import "bttn-utils/bttn-mxn-hover-transition";
+@import "bttn-utils/bttn-factory";
 
 // All the visually different types
 // new types can be added as needed
@@ -26,6 +28,7 @@
 @import "bttn-types/bttn-stroke";
 @import "bttn-types/bttn-ghost";
 @import "bttn-types/bttn-pill";
+@import "bttn-types/bttn-surface";
 
 // Namespaced & ready to use css classes
 @import "bttn-classes";

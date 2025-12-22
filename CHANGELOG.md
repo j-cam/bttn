@@ -8,30 +8,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Comprehensive README with installation and usage instructions
-- Contributing guidelines (CONTRIBUTING.md)
-- Code of Conduct
-- MIT License file
-- Modern build tooling with npm scripts
-- Stylelint configuration for SCSS linting
-- Prettier configuration for code formatting
-- PostCSS configuration for autoprefixing and minification
-- Development server with BrowserSync
-- GitHub Actions workflows for CI/CD
+- New `surface` variant for layout-first containers (cards, tiles).
+- Modern color palettes: `neon`, `royal`, `ocean`, `carbon`.
+- `glass` theme with glassmorphism treatment (backdrop-filter).
+- `size="none"` option to remove internal padding for custom layouts.
+- Centralized SCSS Factory Pattern for consistent interaction states and transitions.
+- Storybook stories for new variants and modern themes.
 
 ### Changed
-- Updated package.json with modern metadata and scripts
-- Migrated from Gulp 3 to modern npm scripts-based build process
-- Updated all dependencies to latest stable versions
-- Improved .gitignore with comprehensive patterns
-- Enhanced documentation with examples and API reference
+- **BREAKING (SCSS)**: Refactored core mixins to use a centralized Factory Pattern.
+- **BREAKING (SCSS)**: Renamed `bttn-default` mixin to `bttn` for consistency.
+- Updated React `Button` component to support new variants and themes.
+- Improved React component logic to default `size="none"` for `surface` variant.
 
-### Deprecated
-- Gulp-based build system (replaced with npm scripts)
+## [1.1.0] - 2025-12-22
 
-### Removed
-- Outdated Gulp dependencies
-- Legacy build configuration
+### Added
+- Polymorphic React `Button` component with `href` detection.
+- Support for `as` prop to override rendered HTML element.
+- Initial React component library implementation.
+- Storybook integration for React components.
 
 ## [1.0.0] - Initial Release
 

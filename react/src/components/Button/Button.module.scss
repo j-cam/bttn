@@ -1,139 +1,137 @@
+@import "./styles/bttn/import";
+
 /**
  * Button Component Styles
  * Self-contained styles based on bttn design system
- * All bttn SCSS source is available in ./styles/bttn/ for reference
  */
 
 /* Base button styles */
 .button {
-  appearance: none;
-  cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-  overflow-wrap: break-word;
-  text-decoration: none;
-  text-align: center;
-  text-transform: uppercase;
-  word-break: break-word;
-  transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
-  display: inline-block;
-
-  &:focus {
-    outline: thin dotted;
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
+  @include bttn-base;
+  display: inline-block; // Ensure it behaves like a button/link
 }
 
-/* Default variant */
+/* Variants */
 .default {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #181d1c;
-  border-radius: 0;
-  color: #fff;
-  background-color: #181d1c;
-
-  &:visited {
-    color: #fff;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: #181d1c;
-    background-color: rgba(201, 192, 192, 0.92);
-    border-color: rgba(201, 192, 192, 0.92);
-  }
+  @include bttn;
 }
 
-/* Stroke variant */
 .stroke {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #181d1c;
-  border-radius: 0;
-  color: #181d1c;
-  background-color: #fff;
-
-  &:visited {
-    color: #181d1c;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: #fff;
-    border-color: #181d1c;
-    background-color: #181d1c;
-  }
+  @include bttn-stroke;
 }
 
-/* Ghost variant */
 .ghost {
-  border: none;
-  background: transparent;
-  color: #181d1c;
-
-  &:focus,
-  &:active,
-  &:hover {
-    color: #181d1c;
-  }
+  @include bttn-ghost;
 }
 
-/* Pill variant */
 .pill {
-  border-radius: 50px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #181d1c;
-  color: #fff;
-  background-color: #181d1c;
-
-  &:visited {
-    color: #fff;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: #181d1c;
-    background-color: rgba(201, 192, 192, 0.92);
-    border-color: rgba(201, 192, 192, 0.92);
-  }
+  @include bttn-pill;
 }
 
-/* Size: Small */
+.surface {
+  @include bttn-surface;
+}
+
+/* Sizes */
 .sm {
-  padding: 9px 13px;
-  font-size: 0.75rem;
-  line-height: 1.17;
+  @include bttn-size(sm);
 }
 
-/* Size: Medium (default) */
 .md {
-  padding: 16px 20px;
-  font-size: 0.9375rem;
-  line-height: 1.13;
+  @include bttn-size(md);
 }
 
-/* Size: Large */
 .lg {
-  padding: 23px 27px;
-  font-size: 1rem;
-  line-height: 1.125;
+  @include bttn-size(lg);
 }
 
-/* Size: Extra Large */
 .xl {
-  padding: 30px 34px;
-  font-size: 1.125rem;
-  line-height: 1.11;
+  @include bttn-size(xl);
+}
+
+.none {
+  @include bttn-size(none);
+}
+
+/* Themes */
+.primary {
+  &.default {
+    @include bttn($theme: primary);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: primary);
+  }
+}
+
+.success {
+  &.default {
+    @include bttn($theme: success);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: success);
+  }
+}
+
+.warning {
+  &.default {
+    @include bttn($theme: warning);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: warning);
+  }
+}
+
+.danger {
+  &.default {
+    @include bttn($theme: danger);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: danger);
+  }
+}
+
+.neon {
+  &.default {
+    @include bttn($theme: neon);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: neon);
+  }
+}
+
+.royal {
+  &.default {
+    @include bttn($theme: royal);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: royal);
+  }
+}
+
+.ocean {
+  &.default {
+    @include bttn($theme: ocean);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: ocean);
+  }
+}
+
+.carbon {
+  &.default {
+    @include bttn($theme: carbon);
+  }
+  &.stroke {
+    @include bttn-stroke($theme: carbon);
+  }
+}
+
+.glass {
+  &.default {
+    @include bttn($theme: glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 /* Block modifier */

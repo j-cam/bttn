@@ -1,0 +1,33 @@
+@use "sass:map";
+
+/**
+ * Surface Mixin
+ * Creates a layout-first container that inherits button interaction logic.
+ * Designed for cards, tiles, and complex sectioning content.
+ */
+@mixin bttn-surface($theme: null, $size: null, $font-size: null, $block: null) {
+  // Initialize the $map dynamically
+  $map: if($theme, map.get($map-bttn-surface-themes, $theme), $bttn-surface-theme-defaults);
+
+  // Define layout overrides for the factory
+  $overrides: (
+    display: flex,
+    flex-direction: column,
+    align-items: stretch,
+    justify-content: flex-start,
+    text-align: left,
+    text-decoration: none,
+    width: if($block == true, 100%, auto),
+  );
+
+  // Use the Factory to construct the component
+  @include bttn-factory($map, $overrides);
+
+  // Standard sizing logic
+  @include bttn-size($size, $font-size);
+
+  // Focus-within ensures accessibility when holding complex children
+  &:focus-within {
+    box-shadow: 0 0 0 2px var(--bttn-focus-ring, #007bff);
+  }
+}

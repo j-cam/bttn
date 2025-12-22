@@ -16,9 +16,9 @@
 Use SCSS mixins to create custom button styles in your stylesheets.
 
 **Features:**
-- 🎨 Multiple button variants (default, stroke, ghost, pill)
-- 📏 Flexible sizing system
-- 🎭 Customizable themes
+- 🎨 Multiple button variants (default, stroke, ghost, pill, surface)
+- 📏 Flexible sizing system (sm, md, lg, xl, none)
+- 🎭 Customizable themes (primary, success, warning, danger, neon, royal, ocean, carbon, glass)
 - 🧩 Mixin-based or pre-built CSS classes
 - Zero runtime dependencies
 
