@@ -50,6 +50,21 @@ export default function MyComponent() {
       <Button href="/about" variant="stroke">
         Learn More
       </Button>
+
+      {/* Surface variant for subtle backgrounds */}
+      <Button variant="surface">
+        Surface Button
+      </Button>
+
+      {/* No padding for card-like behavior */}
+      <Button size="none" variant="ghost">
+        Card-like Button
+      </Button>
+
+      {/* Custom element (advanced) */}
+      <Button as="div" variant="pill" onClick={handleClick}>
+        Custom Element
+      </Button>
     </div>
   );
 }
@@ -79,14 +94,15 @@ The `styles/bttn/` folder contains the complete bttn SCSS library, allowing you 
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `variant` | `'default' \| 'stroke' \| 'ghost' \| 'pill'` | `'default'` | Button style variant |
-| `size` | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Button size |
+| `variant` | `'default' \| 'stroke' \| 'ghost' \| 'pill' \| 'surface'` | `'default'` | Button style variant |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'none'` | `'md'` | Button size - `'none'` removes padding for card-like behavior |
 | `block` | `boolean` | `false` | Whether button should take full width |
 | `className` | `string` | `''` | Additional CSS classes to apply |
 | `href` | `string` | - | If provided, renders as `<a>` element instead of `<button>` |
+| `as` | `keyof JSX.IntrinsicElements` | - | Explicitly override the rendered element (advanced usage) |
 | `children` | `ReactNode` | - | Button content |
 
-All standard HTML button attributes are supported when used as a button, and all standard anchor attributes are supported when `href` is provided.
+All standard HTML attributes are supported based on the rendered element type.
 
 ## Next.js Integration
 

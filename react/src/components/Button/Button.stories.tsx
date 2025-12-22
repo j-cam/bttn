@@ -11,13 +11,18 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'stroke', 'ghost', 'pill'],
+      options: ['default', 'stroke', 'ghost', 'pill', 'surface'],
       description: 'Button style variant',
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg', 'xl'],
-      description: 'Button size',
+      options: ['sm', 'md', 'lg', 'xl', 'none'],
+      description: 'Button size - "none" removes padding for card-like behavior',
+    },
+    as: {
+      control: 'select',
+      options: ['button', 'a', 'div', 'span'],
+      description: 'Explicitly override the rendered element (advanced usage)',
     },
     href: {
       control: 'text',
@@ -122,5 +127,32 @@ export const AsLink: Story = {
     children: 'Link styled as Button',
     href: '#',
     variant: 'stroke',
+  },
+};
+
+// Surface variant (subtle background)
+export const Surface: Story = {
+  args: {
+    children: 'Surface Button',
+    variant: 'surface',
+  },
+};
+
+// No padding size (card-like behavior)
+export const NoPadding: Story = {
+  args: {
+    children: 'No Padding Button',
+    size: 'none',
+    variant: 'ghost',
+  },
+};
+
+// Custom element (advanced usage)
+export const CustomElement: Story = {
+  args: {
+    children: 'Custom Div Element',
+    as: 'div',
+    variant: 'surface',
+    onClick: () => alert('Clicked!'),
   },
 };
