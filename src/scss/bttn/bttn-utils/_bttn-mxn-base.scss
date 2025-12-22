@@ -8,13 +8,14 @@
 @mixin bttn-base {
   appearance: none; // Ensure consistent rendering across browsers
   cursor: pointer;
-  font-weight: $bttn-font-weight;
-  font-family: $bttn-font-family;
+  font-weight: var(--bttn-font-weight, #{$bttn-font-weight});
+  font-family: var(--bttn-font-family, #{$bttn-font-family});
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: $bttn-text-transform;
+  text-transform: var(--bttn-text-transform, #{$bttn-text-transform});
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, #{$bttn-letter-spacing});
 
   &:active,
   &:hover {

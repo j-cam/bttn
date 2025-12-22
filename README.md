@@ -16,22 +16,24 @@
 Use SCSS mixins to create custom button styles in your stylesheets.
 
 **Features:**
-- 🎨 Multiple button variants (default, stroke, ghost, pill, surface)
-- 📏 Flexible sizing system (sm, md, lg, xl, none)
-- 🎭 Customizable themes (primary, success, warning, danger, neon, royal, ocean, carbon, glass)
-- 🧩 Mixin-based or pre-built CSS classes
-- Zero runtime dependencies
+- 🎨 **CSS Variable First:** Fully themeable at runtime using CSS Custom Properties.
+- 🎭 **Multiple Variants:** default, stroke, ghost, pill, surface.
+- 📏 **Flexible Sizing:** sm, md, lg, xl, none.
+- 🌈 **Modern Themes:** primary, success, warning, danger, neon, royal, ocean, carbon, glass.
+- 🧩 **Factory Pattern:** Centralized logic for consistent styling across all variants.
+- 🚀 **Zero Dependencies:** Lightweight and fast.
 
 [View SCSS Documentation →](./docs/SCSS.md)
 
 ### React Components (`bttn-react`)
-Lightweight React components with zero runtime CSS overhead.
+Lightweight React components with zero redundancy, consuming the core SCSS engine directly.
 
 **Features:**
-- ⚛️ TypeScript support
-- 🪶 Tiny bundle (~2KB gzipped)
-- 🎯 Framework-agnostic CSS
-- ✨ Works with Next.js, Vite, and any React app
+- ⚛️ **Polymorphic:** Use the `as` prop to render as any element (button, a, Link, etc.).
+- ✨ **On-The-Fly Theming:** Pass a `customTheme` object to style buttons dynamically.
+- 🪶 **Tiny Bundle:** ~2KB gzipped.
+- 🎯 **TypeScript:** Full type safety for variants, sizes, and themes.
+- 🚀 **Framework Ready:** Works with Next.js, Vite, and Remix.
 
 [View React Documentation →](./react/README.md) | [Next.js Examples →](./react/NEXTJS_EXAMPLE.md)
 
@@ -48,7 +50,23 @@ import { Button } from 'bttn-react';
 import 'bttn-react/styles.css';
 
 function App() {
-  return <Button variant="stroke" size="lg">Click me</Button>;
+  return (
+    <>
+      {/* Standard button */}
+      <Button variant="stroke" size="lg">Click me</Button>
+
+      {/* Polymorphic: Renders as an anchor because of href */}
+      <Button href="/docs" variant="ghost">Documentation</Button>
+
+      {/* Custom Theme: On-the-fly styling */}
+      <Button 
+        customTheme={{ bg: '#ff00ff', color: '#fff' }}
+        variant="pill"
+      >
+        Custom Color
+      </Button>
+    </>
+  );
 }
 ```
 
@@ -118,20 +136,40 @@ Transparent buttons that fill on hover.
 ### Pill Buttons (`bttn-pill`)
 Buttons with fully rounded corners.
 
+### Surface Buttons (`bttn-surface`)
+Minimalist buttons with no padding by default, perfect for cards or custom layouts.
+
 ## 📐 Sizes
 
-bttn comes with four predefined sizes:
+bttn comes with five predefined sizes:
 
 - `sm` - Small buttons
-- `default` - Standard size (used when no size specified)
+- `md` - Standard size (default)
 - `lg` - Large buttons
 - `xl` - Extra large buttons
-
-You can also define custom sizes by overriding the size variables.
+- `none` - Removes all internal padding (default for `surface` variant)
 
 ## ⚙️ Configuration
 
-### Customizing Default Settings
+### CSS Variable Overrides (Runtime)
+
+Since v1.2.0, bttn uses CSS Custom Properties. You can override any setting at runtime without recompiling SCSS:
+
+```css
+:root {
+  --bttn-border-radius: 8px;
+  --bttn-font-family: 'Inter', sans-serif;
+  --bttn-transition-duration: 0.15s;
+}
+
+/* Override for a specific container */
+.dark-mode {
+  --bttn-bg: #000;
+  --bttn-color: #fff;
+}
+```
+
+### SCSS Variable Overrides (Build-time)
 
 Override the default settings before importing bttn:
 
@@ -254,6 +292,19 @@ Creates a ghost/transparent button.
 #### `bttn-pill($size, $font-size, $theme)`
 Creates a pill-shaped button with rounded corners.
 
+### React `Button` Component
+
+The React component is polymorphic and supports all SCSS variants and themes.
+
+**Props:**
+- `variant`: `'default' | 'stroke' | 'ghost' | 'pill' | 'surface'`
+- `size`: `'sm' | 'md' | 'lg' | 'xl' | 'none'`
+- `theme`: `'primary' | 'success' | 'warning' | 'danger' | 'neon' | 'royal' | 'ocean' | 'carbon' | 'glass'`
+- `customTheme`: An object for runtime color overrides (`bg`, `color`, `border`, etc.)
+- `as`: The HTML element or React component to render as (defaults to `button` or `a`)
+- `block`: Boolean for full-width buttons
+- `href`: Standard anchor href (automatically changes element to `a`)
+
 ## 🏗️ Development
 
 ### Prerequisites
@@ -293,11 +344,16 @@ bttn/
 │       └── bttn/
 │           ├── bttn-themes/        # Color theme definitions
 │           ├── bttn-types/         # Button type mixins
-│           ├── bttn-utils/         # Utility mixins and functions
+│           ├── bttn-utils/         # Factory and utility mixins
 │           ├── lib/                # Core functions
-│           ├── _bttn-settings.scss # Configuration variables
-│           ├── _bttn-classes.scss  # CSS class definitions
-│           └── import.scss         # Main import file
+│           ├── _bttn-settings.scss # SCSS default variables
+│           ├── _bttn-variables.scss # CSS Custom Properties manifest
+│           └── import.scss         # Main entry point
+├── react/
+│   ├── src/
+│   │   └── components/
+│   │       └── Button/             # Polymorphic React Button
+│   └── package.json
 ├── docs/                           # Documentation and examples
 ├── package.json
 └── README.md

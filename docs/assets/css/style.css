@@ -8,6 +8,35 @@
  * All variables use !default to allow for easy overrides.
  */
 /**
+ * bttn CSS Variables
+ * Defines the CSS Custom Properties used by the library.
+ * These are initialized with SCSS defaults but can be overridden at runtime.
+ */
+:root {
+  --bttn-font-family: Helvetica Neue, helvetica, arial, sans-serif;
+  --bttn-font-weight: normal;
+  --bttn-letter-spacing: normal;
+  --bttn-text-transform: uppercase;
+  --bttn-display: inline-block;
+  --bttn-border-width: 1px;
+  --bttn-border-style: solid;
+  --bttn-border-radius: 0;
+  --bttn-transition-duration: 0.3s;
+  --bttn-padding: 16px 20px;
+  --bttn-font-size: 0.9375rem;
+  --bttn-line-height: 1.1333333333;
+  --bttn-padding-sm: 9px 13px;
+  --bttn-font-size-sm: 0.75rem;
+  --bttn-line-height-sm: 1.1666666667;
+  --bttn-padding-lg: 23px 27px;
+  --bttn-font-size-lg: 1rem;
+  --bttn-line-height-lg: 1.125;
+  --bttn-padding-xl: 30px 34px;
+  --bttn-font-size-xl: 1.125rem;
+  --bttn-line-height-xl: 1.1111111111;
+}
+
+/**
  * Base Button Style
  * Shared default values for all bttn variants.
  *
@@ -52,13 +81,14 @@
 .bttn {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn:active, .bttn:hover {
   text-decoration: none;
@@ -73,13 +103,14 @@
 }
 .bttn {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #181d1c);
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #fff);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn .icon {
@@ -97,21 +128,22 @@
 .bttn {
   width: auto;
   display: inline-block;
-  padding: 16px 20px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding, 16px 20px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 
 .bttn-sm {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-sm:active, .bttn-sm:hover {
   text-decoration: none;
@@ -126,13 +158,14 @@
 }
 .bttn-sm {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #181d1c);
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #fff);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-sm .icon {
@@ -150,21 +183,22 @@
 .bttn-sm {
   width: auto;
   display: inline-block;
-  padding: 9px 13px;
-  font-size: 0.75rem;
-  line-height: 1.1666666667;
+  padding: var(--bttn-padding-sm, 9px 13px);
+  font-size: var(--bttn-font-size-sm, 0.75rem);
+  line-height: var(--bttn-line-height-sm, 1.1666666667);
 }
 
 .bttn-lg {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-lg:active, .bttn-lg:hover {
   text-decoration: none;
@@ -179,13 +213,14 @@
 }
 .bttn-lg {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #181d1c);
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #fff);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-lg .icon {
@@ -203,21 +238,22 @@
 .bttn-lg {
   width: auto;
   display: inline-block;
-  padding: 23px 27px;
-  font-size: 1rem;
-  line-height: 1.125;
+  padding: var(--bttn-padding-lg, 23px 27px);
+  font-size: var(--bttn-font-size-lg, 1rem);
+  line-height: var(--bttn-line-height-lg, 1.125);
 }
 
 .bttn-xl {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-xl:active, .bttn-xl:hover {
   text-decoration: none;
@@ -232,13 +268,14 @@
 }
 .bttn-xl {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #181d1c);
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #fff);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-xl .icon {
@@ -256,21 +293,22 @@
 .bttn-xl {
   width: auto;
   display: inline-block;
-  padding: 30px 34px;
-  font-size: 1.125rem;
-  line-height: 1.1111111111;
+  padding: var(--bttn-padding-xl, 30px 34px);
+  font-size: var(--bttn-font-size-xl, 1.125rem);
+  line-height: var(--bttn-line-height-xl, 1.1111111111);
 }
 
 .bttn-surface {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-surface:active, .bttn-surface:hover {
   text-decoration: none;
@@ -285,13 +323,14 @@
 }
 .bttn-surface {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #f8f9fa);
   border-color: var(--bttn-border, #dee2e6);
   color: var(--bttn-color, #212529);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-surface .icon {
@@ -314,9 +353,9 @@
   text-align: left;
   text-decoration: none;
   width: auto;
-  padding: 16px 20px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding, 16px 20px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 .bttn-surface:focus-within {
   box-shadow: 0 0 0 2px var(--bttn-focus-ring, #007bff);
@@ -325,13 +364,14 @@
 .bttn-surface-none {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-surface-none:active, .bttn-surface-none:hover {
   text-decoration: none;
@@ -346,13 +386,14 @@
 }
 .bttn-surface-none {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #f8f9fa);
   border-color: var(--bttn-border, #dee2e6);
   color: var(--bttn-color, #212529);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-surface-none .icon {
@@ -376,8 +417,8 @@
   text-decoration: none;
   width: auto;
   padding: 0;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 .bttn-surface-none:focus-within {
   box-shadow: 0 0 0 2px var(--bttn-focus-ring, #007bff);
@@ -386,13 +427,14 @@
 .bttn-stroke-sm {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-stroke-sm:active, .bttn-stroke-sm:hover {
   text-decoration: none;
@@ -407,13 +449,14 @@
 }
 .bttn-stroke-sm {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #fff);
   border-color: var(--bttn-border, #181d1c);
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-stroke-sm .icon {
@@ -431,21 +474,22 @@
 .bttn-stroke-sm {
   width: auto;
   display: inline-block;
-  padding: 9px 13px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding-sm, 9px 13px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 
 .bttn-stroke {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-stroke:active, .bttn-stroke:hover {
   text-decoration: none;
@@ -460,13 +504,14 @@
 }
 .bttn-stroke {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #fff);
   border-color: var(--bttn-border, #181d1c);
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-stroke .icon {
@@ -484,21 +529,22 @@
 .bttn-stroke {
   width: auto;
   display: inline-block;
-  padding: 16px 20px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding, 16px 20px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 
 .bttn-stroke-lg {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-stroke-lg:active, .bttn-stroke-lg:hover {
   text-decoration: none;
@@ -513,13 +559,14 @@
 }
 .bttn-stroke-lg {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #fff);
   border-color: var(--bttn-border, #181d1c);
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-stroke-lg .icon {
@@ -537,21 +584,22 @@
 .bttn-stroke-lg {
   width: auto;
   display: inline-block;
-  padding: 23px 27px;
-  font-size: 1rem;
-  line-height: 1.125;
+  padding: var(--bttn-padding-lg, 23px 27px);
+  font-size: var(--bttn-font-size-lg, 1rem);
+  line-height: var(--bttn-line-height-lg, 1.125);
 }
 
 .bttn-stroke-xl {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-stroke-xl:active, .bttn-stroke-xl:hover {
   text-decoration: none;
@@ -566,13 +614,14 @@
 }
 .bttn-stroke-xl {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, #fff);
   border-color: var(--bttn-border, #181d1c);
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-stroke-xl .icon {
@@ -590,21 +639,22 @@
 .bttn-stroke-xl {
   width: auto;
   display: inline-block;
-  padding: 30px 34px;
-  font-size: 1.125rem;
-  line-height: 1.1111111111;
+  padding: var(--bttn-padding-xl, 30px 34px);
+  font-size: var(--bttn-font-size-xl, 1.125rem);
+  line-height: var(--bttn-line-height-xl, 1.1111111111);
 }
 
 .bttn-ghost {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-ghost:active, .bttn-ghost:hover {
   text-decoration: none;
@@ -619,13 +669,14 @@
 }
 .bttn-ghost {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, );
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-ghost .icon {
@@ -645,21 +696,22 @@
   background-color: transparent;
   width: auto;
   display: inline-block;
-  padding: 16px 20px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding, 16px 20px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 
 .bttn-ghost-sm {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-ghost-sm:active, .bttn-ghost-sm:hover {
   text-decoration: none;
@@ -674,13 +726,14 @@
 }
 .bttn-ghost-sm {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, );
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-ghost-sm .icon {
@@ -700,21 +753,22 @@
   background-color: transparent;
   width: auto;
   display: inline-block;
-  padding: 9px 13px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding-sm, 9px 13px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 
 .bttn-ghost-xl {
   appearance: none;
   cursor: pointer;
-  font-weight: normal;
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: var(--bttn-font-weight, normal);
+  font-family: var(--bttn-font-family, Helvetica Neue, helvetica, arial, sans-serif);
   overflow-wrap: break-word;
   text-decoration: none;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: var(--bttn-text-transform, uppercase);
   word-break: break-word;
+  letter-spacing: var(--bttn-letter-spacing, normal);
 }
 .bttn-ghost-xl:active, .bttn-ghost-xl:hover {
   text-decoration: none;
@@ -729,13 +783,14 @@
 }
 .bttn-ghost-xl {
   transition-property: color, background-color, border-color, fill;
-  transition-duration: 0.3s;
+  transition-duration: var(--bttn-transition-duration, 0.3s);
   background-color: var(--bttn-bg, );
   border-color: var(--bttn-border, );
   color: var(--bttn-color, #181d1c);
-  border-style: solid;
-  border-width: 1px;
-  display: inline-block;
+  border-style: var(--bttn-border-style, solid);
+  border-width: var(--bttn-border-width, 1px);
+  border-radius: var(--bttn-border-radius, 0);
+  display: var(--bttn-display, inline-block);
   vertical-align: middle;
 }
 .bttn-ghost-xl .icon {
@@ -755,9 +810,9 @@
   background-color: transparent;
   width: auto;
   display: inline-block;
-  padding: 30px 34px;
-  font-size: 0.9375rem;
-  line-height: 1.1333333333;
+  padding: var(--bttn-padding-xl, 30px 34px);
+  font-size: var(--bttn-font-size, 0.9375rem);
+  line-height: var(--bttn-line-height, 1.1333333333);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,52 +1,34 @@
 // Add the appropriate padding to buttons
 @mixin bttn-size($size: null, $font-size: null) {
   // ---------------------------------
-  // FONT SIZE & LINE HEIGHT
+  // PADDING
   // ---------------------------------
   @if $size == xl {
-    padding: $bttn-padding-xl;
-
-    // @debug 'bttn $size = xl';
+    padding: var(--bttn-padding-xl, #{$bttn-padding-xl});
   } @else if $size == lg {
-    padding: $bttn-padding-lg;
-
-    // @debug 'bttn $size = lg';
+    padding: var(--bttn-padding-lg, #{$bttn-padding-lg});
   } @else if $size == sm {
-    padding: $bttn-padding-sm;
-
-    // @debug 'bttn $size = sm';
+    padding: var(--bttn-padding-sm, #{$bttn-padding-sm});
   } @else if $size == none {
     padding: 0;
-
-    // @debug 'bttn $size = none';
   } @else {
-    padding: $bttn-padding;
-
-    // @debug 'bttn $size = default';
+    padding: var(--bttn-padding, #{$bttn-padding});
   }
 
   // ---------------------------------
   // FONT SIZE & LINE HEIGHT
   // ---------------------------------
   @if $font-size == xl {
-    font-size: $bttn-font-size-xl;
-    line-height: $bttn-line-height-xl;
-
-    // @debug 'bttn $font-size = XL';
+    font-size: var(--bttn-font-size-xl, #{$bttn-font-size-xl});
+    line-height: var(--bttn-line-height-xl, #{$bttn-line-height-xl});
   } @else if $font-size == lg {
-    font-size: $bttn-font-size-lg;
-    line-height: $bttn-line-height-lg;
-
-    // @debug 'bttn $font-size = LG';
+    font-size: var(--bttn-font-size-lg, #{$bttn-font-size-lg});
+    line-height: var(--bttn-line-height-lg, #{$bttn-line-height-lg});
   } @else if $font-size == sm {
-    font-size: $bttn-font-size-sm;
-    line-height: $bttn-line-height-sm;
-
-    // @debug 'bttn $font-size = SM';
+    font-size: var(--bttn-font-size-sm, #{$bttn-font-size-sm});
+    line-height: var(--bttn-line-height-sm, #{$bttn-line-height-sm});
   } @else {
-    font-size: $bttn-font-size;
-    line-height: $bttn-line-height;
-
-    // @debug 'bttn $font-size = Default';
+    font-size: var(--bttn-font-size, #{$bttn-font-size});
+    line-height: var(--bttn-line-height, #{$bttn-line-height});
   }
 }

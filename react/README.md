@@ -1,69 +1,51 @@
 # bttn-react
 
-A lightweight React component library for bttn buttons with **encapsulated CSS Modules**. Each component bundles its own styles - no separate CSS import needed!
+A lightweight, polymorphic React component library for bttn buttons. Powered by a **CSS Variable First** architecture and a centralized SCSS engine.
 
 ## ✨ Key Features
 
-- **🎨 Self-Contained**: Styles are bundled with each component
-- **📦 Zero Config**: No need to import separate CSS files
-- **🔒 Scoped Styles**: CSS Modules prevent style conflicts
-- **⚛️ TypeScript**: Full type safety included
-- **🪶 Lightweight**: ~3KB total (JS + CSS)
-- **🎯 Encapsulated Architecture**: Each component contains its own SCSS source
+- **🎨 CSS Variable First**: Fully themeable at runtime using CSS Custom Properties.
+- **⚛️ Polymorphic**: Use the `as` prop to render as any element (button, a, Link, etc.).
+- **✨ On-The-Fly Theming**: Pass a `customTheme` object for dynamic styling.
+- **📏 Flexible Sizing**: sm, md, lg, xl, and 'none' for card-like behavior.
+- **🔒 Scoped Styles**: Uses CSS Modules to prevent global style leakage.
+- **⚛️ TypeScript**: Full type safety for variants, sizes, and themes.
+- **🪶 Lightweight**: ~3KB total (JS + CSS).
 
 ## Installation
 
 ```bash
 npm install bttn-react
-# or
-yarn add bttn-react
-# or
-pnpm add bttn-react
 ```
 
 ## Usage
 
 ### Basic Setup
 
-**No CSS import needed!** Just import the component:
+Import the component and the required CSS file:
 
 ```tsx
 import { Button } from 'bttn-react';
+import 'bttn-react/styles.css'; // Required CSS import
 
 export default function MyComponent() {
   return (
     <div>
-      {/* Styles are automatically included */}
-      <Button>Click me</Button>
-      
-      {/* Different variants */}
       <Button variant="stroke" size="lg">
         Large Stroke Button
       </Button>
 
-      {/* Ghost variant */}
-      <Button variant="ghost" size="sm">
-        Small Ghost Button
-      </Button>
-
-      {/* Link styled as button */}
-      <Button href="/about" variant="stroke">
+      {/* Polymorphic: Renders as an anchor */}
+      <Button href="/about" variant="ghost">
         Learn More
       </Button>
 
-      {/* Surface variant for subtle backgrounds */}
-      <Button variant="surface">
-        Surface Button
-      </Button>
-
-      {/* No padding for card-like behavior */}
-      <Button size="none" variant="ghost">
-        Card-like Button
-      </Button>
-
-      {/* Custom element (advanced) */}
-      <Button as="div" variant="pill" onClick={handleClick}>
-        Custom Element
+      {/* Custom Theme: On-the-fly styling */}
+      <Button 
+        customTheme={{ bg: '#1d89ff', color: '#fff' }}
+        variant="pill"
+      >
+        Custom Color
       </Button>
     </div>
   );
@@ -72,21 +54,16 @@ export default function MyComponent() {
 
 ## Component Architecture
 
-Each component follows this self-contained structure:
+The React package is built as a thin wrapper around the core SCSS library:
 
 ```
 Button/
-├── Button.tsx              # Component logic
-├── Button.module.scss      # Component styles (CSS Modules)
-├── index.ts                # Clean exports
-└── styles/
-    └── bttn/               # Full bttn SCSS source (for reference/customization)
+├── Button.tsx              # Polymorphic component logic
+├── Button.module.scss      # Consumes root SCSS via @import "bttn"
+└── index.ts                # Clean exports
 ```
 
-The `styles/bttn/` folder contains the complete bttn SCSS library, allowing you to:
-- Reference the original design system
-- Create custom variants
-- Understand the styling approach
+The build process uses `tsup` and `esbuild-sass-plugin` to resolve `@import "bttn"` to the root `src/scss` folder, ensuring a single source of truth for all styles.
 
 ## API Reference
 
@@ -96,8 +73,27 @@ The `styles/bttn/` folder contains the complete bttn SCSS library, allowing you 
 |------|------|---------|-------------|
 | `variant` | `'default' \| 'stroke' \| 'ghost' \| 'pill' \| 'surface'` | `'default'` | Button style variant |
 | `theme` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'neon' \| 'royal' \| 'ocean' \| 'carbon' \| 'glass'` | `'default'` | Color theme |
-| `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'none'` | `'md'` | Button size - `'none'` removes padding for card-like behavior |
+| `size` | `'sm' \| 'md' \| 'lg' \| 'xl' \| 'none'` | `'md'` | Button size |
+| `customTheme` | `CustomTheme` | `undefined` | Object for runtime color overrides |
+| `as` | `any` | `button \| a` | The HTML element or component to render as |
 | `block` | `boolean` | `false` | Whether button should take full width |
+| `href` | `string` | `undefined` | Standard anchor href |
+| `children` | `ReactNode` | **Required** | Button content |
+
+### CustomTheme Interface
+
+```typescript
+interface CustomTheme {
+  bg?: string;
+  bgActive?: string;
+  border?: string;
+  borderActive?: string;
+  color?: string;
+  colorActive?: string;
+  icon?: string;
+  iconActive?: string;
+}
+```
 | `className` | `string` | `''` | Additional CSS classes to apply |
 | `href` | `string` | - | If provided, renders as `<a>` element instead of `<button>` |
 | `as` | `keyof JSX.IntrinsicElements` | - | Explicitly override the rendered element (advanced usage) |

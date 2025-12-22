@@ -1,0 +1,40 @@
+/**
+ * bttn CSS Variables
+ * Defines the CSS Custom Properties used by the library.
+ * These are initialized with SCSS defaults but can be overridden at runtime.
+ */
+
+:root {
+    // --- Typography ---
+    --bttn-font-family: #{$bttn-font-family};
+    --bttn-font-weight: #{$bttn-font-weight};
+    --bttn-letter-spacing: #{$bttn-letter-spacing};
+    --bttn-text-transform: #{$bttn-text-transform};
+
+    // --- Layout & Borders ---
+    --bttn-display: #{$bttn-display};
+    --bttn-border-width: #{$bttn-border-width};
+    --bttn-border-style: #{$bttn-border-style};
+    --bttn-border-radius: #{$bttn-border-radius};
+    --bttn-transition-duration: #{$bttn-transition-duration};
+
+    // --- Default Sizing ---
+    --bttn-padding: #{$bttn-padding};
+    --bttn-font-size: #{$bttn-font-size};
+    --bttn-line-height: #{$bttn-line-height};
+
+    // --- Small Sizing ---
+    --bttn-padding-sm: #{$bttn-padding-sm};
+    --bttn-font-size-sm: #{$bttn-font-size-sm};
+    --bttn-line-height-sm: #{$bttn-line-height-sm};
+
+    // --- Large Sizing ---
+    --bttn-padding-lg: #{$bttn-padding-lg};
+    --bttn-font-size-lg: #{$bttn-font-size-lg};
+    --bttn-line-height-lg: #{$bttn-line-height-lg};
+
+    // --- Extra Large Sizing ---
+    --bttn-padding-xl: #{$bttn-padding-xl};
+    --bttn-font-size-xl: #{$bttn-font-size-xl};
+    --bttn-line-height-xl: #{$bttn-line-height-xl};
+}

@@ -28,9 +28,10 @@
   background-color: var(--bttn-bg, #{$bg-color});
   border-color: var(--bttn-border, #{$border-color});
   color: var(--bttn-color, #{$font-color});
-  border-style: $bttn-border-style;
-  border-width: $bttn-border-width;
-  display: $bttn-display;
+  border-style: var(--bttn-border-style, #{$bttn-border-style});
+  border-width: var(--bttn-border-width, #{$bttn-border-width});
+  border-radius: var(--bttn-border-radius, #{$bttn-border-radius});
+  display: var(--bttn-display, #{$bttn-display});
   vertical-align: middle;
 
   // Icon logic
