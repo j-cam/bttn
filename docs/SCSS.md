@@ -1,11 +1,11 @@
 # SCSS Documentation
 
-The **bttn** SCSS library is a modern, flexible, and lightweight button styling system built with a **CSS Variable First** architecture. It uses a centralized Factory Pattern to ensure consistency across all button variants while allowing for powerful runtime customization.
+The **@j-cam/bttn** SCSS library is a modern, flexible, and lightweight button styling system built with a **CSS Variable First** architecture. It uses a centralized Factory Pattern to ensure consistency across all button variants while allowing for powerful runtime customization.
 
 ## 🚀 Installation
 
 ```bash
-npm install bttn --save-dev
+npm install @j-cam/bttn --save-dev
 ```
 
 ## 🛠️ Usage
@@ -15,7 +15,7 @@ npm install bttn --save-dev
 Import the library into your main SCSS file:
 
 ```scss
-@import 'node_modules/bttn/src/scss/bttn/import';
+@import 'node_modules/@j-cam/bttn/src/scss/bttn/import';
 ```
 
 ### 2. Using Mixins (Recommended)

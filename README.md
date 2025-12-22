@@ -1,8 +1,8 @@
-# bttn
+# @j-cam/bttn
 
 > A modern button styling library for SCSS and React
 
-[![npm version](https://img.shields.io/npm/v/bttn.svg)](https://www.npmjs.com/package/bttn)
+[![npm version](https://img.shields.io/npm/v/@j-cam/bttn.svg)](https://www.npmjs.com/package/@j-cam/bttn)
 [![bttn-react version](https://img.shields.io/npm/v/bttn-react.svg)](https://www.npmjs.com/package/bttn-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -73,11 +73,11 @@ function App() {
 ### For SCSS Projects
 
 ```bash
-npm install bttn --save-dev
+npm install @j-cam/bttn --save-dev
 ```
 
 ```scss
-@import 'node_modules/bttn/src/scss/bttn/import';
+@import 'node_modules/@j-cam/bttn/src/scss/bttn/import';
 
 .my-button {
   @include bttn($theme: 'primary', $size: 'lg');
