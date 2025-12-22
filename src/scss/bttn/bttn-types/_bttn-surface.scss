@@ -11,57 +11,25 @@
     $font-size: null,
     $block:     null
 ) {
-    // Initialize the $map dynamically following project patterns
-    $map: null;
+    // Initialize the $map dynamically
+    $map: if($theme, map.get($map-bttn-surface-themes, $theme), $bttn-surface-theme-defaults);
 
-    @if $theme {
-        $map: map.get($map-bttn-surface-themes, $theme);
-    } @else {
-        // You'll need to define these in your _bttn-themes.scss
-        $map: $bttn-surface-theme-defaults;
-    }
+    // Define layout overrides for the factory
+    $overrides: (
+        display: flex,
+        flex-direction: column,
+        align-items: stretch,
+        justify-content: flex-start,
+        text-align: left,
+        text-decoration: none,
+        width: if($block == true, 100%, auto)
+    );
 
-    $bg-color: map.get($map, bg-color);
-    $bg-color-active: map.get($map, bg-color-active);
-    $border-color: map.get($map, border-color);
-    $border-color-active: map.get($map, border-color-active);
-    $font-color: map.get($map, font-color);
+    // Use the Factory to construct the component
+    @include bttn-factory($map, $overrides);
 
-    // Shared industrial resets
-    @include bttn-base;
-    @include bttn-hover-transition;
-
-    // Standard sizing logic (allows size="none" to be handled by bttn-size)
+    // Standard sizing logic
     @include bttn-size($size, $font-size);
-
-    // Surface-specific layout governance
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    text-align: left;
-    text-decoration: none;
-
-    @if $block == true {
-        width: 100%;
-    }
-
-    // Material definitions
-    background-color: $bg-color;
-    border: $bttn-border-width $bttn-border-style $border-color;
-    border-radius: $bttn-border-radius;
-    color: $font-color;
-
-    &:active,
-    &:focus,
-    &:hover {
-        background-color: $bg-color-active;
-        border-color: $border-color-active;
-        text-decoration: none;
-        
-        // Ensure that if the surface is an <a>, it doesn't get a standard link underline
-        outline: none; 
-    }
     
     // Focus-within ensures accessibility when holding complex children
     &:focus-within {

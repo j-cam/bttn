@@ -1,0 +1,51 @@
+@use "sass:map";
+
+/**
+ * Surface Theme Maps
+ * Defines color palettes for the Surface variant.
+ */
+
+$map-bttn-surface-themes: (
+  default: (
+    bg-color: #f8f9fa,
+    bg-color-active: #e9ecef,
+    border-color: #dee2e6,
+    border-color-active: #ced4da,
+    font-color: #212529,
+    font-color-active: #212529,
+  ),
+  primary: (
+    bg-color: #e7f1ff,
+    bg-color-active: #cfe2ff,
+    border-color: #b6d4fe,
+    border-color-active: #9ec5fe,
+    font-color: #084298,
+    font-color-active: #084298,
+  ),
+  success: (
+    bg-color: #d1e7dd,
+    bg-color-active: #badbcc,
+    border-color: #badbcc,
+    border-color-active: #a3cfbb,
+    font-color: #0f5132,
+    font-color-active: #0f5132,
+  ),
+  warning: (
+    bg-color: #fff3cd,
+    bg-color-active: #ffecb5,
+    border-color: #ffe69c,
+    border-color-active: #ffdf7e,
+    font-color: #664d03,
+    font-color-active: #664d03,
+  ),
+  danger: (
+    bg-color: #f8d7da,
+    bg-color-active: #f5c2c7,
+    border-color: #f5c2c7,
+    border-color-active: #f1aeb5,
+    font-color: #842029,
+    font-color-active: #842029,
+  ),
+);
+
+$bttn-surface-theme-defaults: map.get($map-bttn-surface-themes, default);
