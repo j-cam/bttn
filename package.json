@@ -21,6 +21,9 @@
     "clean": "rimraf docs/assets/css docs/assets/maps",
     "lint:scss": "stylelint 'src/scss/**/*.scss'",
     "format": "prettier --write 'src/scss/**/*.scss'",
+    "storybook": "npm run storybook --prefix react",
+    "dev:react": "npm run dev --prefix react",
+    "build:react": "npm run build --prefix react",
     "test": "echo \"No tests specified yet\" && exit 0"
   },
   "repository": {
