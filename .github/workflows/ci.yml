@@ -31,3 +31,9 @@ jobs:
       
     - name: Build
       run: npm run build
+
+    - name: Install React dependencies
+      run: cd react && npm ci --legacy-peer-deps
+
+    - name: Build React package
+      run: cd react && npm run build
