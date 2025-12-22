@@ -1,0 +1,61 @@
+@use "sass:map";
+
+/**
+ * bttn Factory Mixin
+ * Centralizes the construction logic for all button variants.
+ *
+ * @param {Map} $map - Theme data containing colors and states.
+ * @param {Map} $overrides - Optional layout or property overrides.
+ */
+@mixin bttn-factory($map, $overrides: ()) {
+    // Include shared base styles
+    @include bttn-base;
+    
+    // Include transition properties
+    @include bttn-hover-transition;
+
+    // Extract values from the theme map
+    $bg-color: map.get($map, bg-color);
+    $bg-color-active: map.get($map, bg-color-active);
+    $border-color: map.get($map, border-color);
+    $border-color-active: map.get($map, border-color-active);
+    $font-color: map.get($map, font-color);
+    $font-color-active: map.get($map, font-color-active);
+    $icon-fill: map.get($map, icon-fill);
+    $icon-fill-active: map.get($map, icon-fill-active);
+
+    // Apply core styles
+    background-color: $bg-color;
+    border-color: $border-color;
+    color: $font-color;
+    border-style: $bttn-border-style;
+    border-width: $bttn-border-width;
+    display: $bttn-display;
+    vertical-align: middle;
+
+    // Icon logic
+    .icon {
+        fill: if($icon-fill, $icon-fill, $font-color);
+    }
+
+    // Interaction states
+    &:active,
+    &:focus,
+    &:hover {
+        background-color: $bg-color-active;
+        border-color: $border-color-active;
+        color: $font-color-active;
+        outline: none;
+
+        .icon {
+            fill: if($icon-fill-active, $icon-fill-active, $font-color-active);
+        }
+    }
+
+    // Apply overrides
+    @if $overrides {
+        @each $prop, $value in $overrides {
+            #{$prop}: $value;
+        }
+    }
+}
