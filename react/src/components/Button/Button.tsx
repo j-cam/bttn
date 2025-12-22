@@ -7,7 +7,7 @@ export type ButtonVariant = 'default' | 'stroke' | 'ghost' | 'pill' | 'surface';
  * 'none' removes internal padding, useful for card-like behavior or custom layouts.
  */
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl' | 'none';
-export type ButtonTheme = 'default' | 'primary' | 'success' | 'warning' | 'danger';
+export type ButtonTheme = 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'neon' | 'royal' | 'ocean' | 'carbon' | 'glass';
 
 /**
  * Props for the Button component.
