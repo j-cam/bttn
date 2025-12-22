@@ -8,7 +8,7 @@
 
 **bttn** provides consistent, themeable button styling for web applications. Available as both SCSS mixins and React components.
 
-**[📚 View Live Demo →](https://j-cam.github.io/bttn/)**
+**[📚 View Live Demo →](https://j-cam.github.io/bttn/?path=story/components-button--modern-themes)**
 
 ## 📦 Packages
 
