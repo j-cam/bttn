@@ -45,6 +45,11 @@ export default function MyComponent() {
       <Button variant="ghost" size="sm">
         Small Ghost Button
       </Button>
+
+      {/* Link styled as button */}
+      <Button href="/about" variant="stroke">
+        Learn More
+      </Button>
     </div>
   );
 }
@@ -78,9 +83,10 @@ The `styles/bttn/` folder contains the complete bttn SCSS library, allowing you 
 | `size` | `'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Button size |
 | `block` | `boolean` | `false` | Whether button should take full width |
 | `className` | `string` | `''` | Additional CSS classes to apply |
+| `href` | `string` | - | If provided, renders as `<a>` element instead of `<button>` |
 | `children` | `ReactNode` | - | Button content |
 
-All standard HTML button attributes are also supported (`onClick`, `disabled`, `type`, etc.)
+All standard HTML button attributes are supported when used as a button, and all standard anchor attributes are supported when `href` is provided.
 
 ## Next.js Integration
 

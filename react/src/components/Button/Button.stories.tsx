@@ -19,6 +19,10 @@ const meta = {
       options: ['sm', 'md', 'lg', 'xl'],
       description: 'Button size',
     },
+    href: {
+      control: 'text',
+      description: 'If provided, renders as an anchor element instead of button',
+    },
     block: {
       control: 'boolean',
       description: 'Whether the button should take full width',
@@ -109,5 +113,14 @@ export const Block: Story = {
   },
   parameters: {
     layout: 'padded',
+  },
+};
+
+// As anchor link
+export const AsLink: Story = {
+  args: {
+    children: 'Link styled as Button',
+    href: '#',
+    variant: 'stroke',
   },
 };

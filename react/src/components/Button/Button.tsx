@@ -18,6 +18,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   className?: string;
   /** Button content */
   children: React.ReactNode;
+  /** If provided, renders as an anchor element instead of button */
+  href?: string;
 }
 
 /**
@@ -31,9 +33,13 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  * <Button variant="stroke" size="lg">
  *   Click me
  * </Button>
+ * 
+ * <Button href="/link" variant="ghost">
+ *   Link styled as button
+ * </Button>
  * ```
  */
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
   (
     {
       variant = 'default',
@@ -42,7 +48,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       block,
       className = '',
       children,
-      type = 'button',
+      href,
       ...props
     },
     ref
@@ -69,8 +75,21 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return classList.join(' ');
     }, [variant, size, block, className]);
 
+    const commonProps = {
+      className: classes,
+      ...props
+    };
+
+    if (href) {
+      return (
+        <a ref={ref as React.Ref<HTMLAnchorElement>} href={href} {...(commonProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <button ref={ref} type={type} className={classes} {...props}>
+      <button ref={ref as React.Ref<HTMLButtonElement>} {...(commonProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
         {children}
       </button>
     );
