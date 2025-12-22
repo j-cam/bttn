@@ -20,6 +20,20 @@ export type ButtonTheme =
   | 'glass';
 
 /**
+ * Custom theme colors for on-the-fly theme generation.
+ */
+export interface CustomTheme {
+  bg?: string;
+  bgActive?: string;
+  border?: string;
+  borderActive?: string;
+  color?: string;
+  colorActive?: string;
+  icon?: string;
+  iconActive?: string;
+}
+
+/**
  * Props for the Button component.
  * Extends standard HTML attributes but omits 'size' to avoid conflict with our custom size prop.
  */
@@ -39,6 +53,10 @@ export interface ButtonProps extends Omit<React.AllHTMLAttributes<HTMLElement>, 
    * Note: Only applies to 'default' and 'stroke' variants in the current SCSS implementation.
    */
   theme?: ButtonTheme;
+  /**
+   * Custom theme colors for on-the-fly theme generation.
+   */
+  customTheme?: CustomTheme;
   /**
    * If true, the button will take up the full width of its container.
    * @default false
@@ -89,6 +107,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       variant = 'default',
       size: sizeProp,
       theme,
+      customTheme,
       block,
       className = '',
       children,
@@ -142,31 +161,32 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
      * 2. Use 'a' if 'href' is present.
      * 3. Default to 'button'.
      */
-    const Element = (as || (href ? 'a' : 'button')) as any;
+    const Component = as || (href ? 'a' : 'button');
 
-    /**
-     * Prepare props for the underlying element.
-     * We handle 'href' and 'type' specifically based on the element type.
-     */
-    const elementProps: any = {
-      ...props,
-      className: classes,
-    };
-
-    // If it's an anchor, ensure href is passed
-    if (Element === 'a' && href) {
-      elementProps.href = href;
-    }
-
-    // If it's a button, default type to 'button' if not specified
-    if (Element === 'button' && !props.type) {
-      elementProps.type = 'button';
-    }
+    // Generate custom theme styles if provided
+    const customStyles: React.CSSProperties = customTheme
+      ? ({
+          '--bttn-bg': customTheme.bg,
+          '--bttn-bg-active': customTheme.bgActive,
+          '--bttn-border': customTheme.border,
+          '--bttn-border-active': customTheme.borderActive,
+          '--bttn-color': customTheme.color,
+          '--bttn-color-active': customTheme.colorActive,
+          '--bttn-icon': customTheme.icon,
+          '--bttn-icon-active': customTheme.iconActive,
+        } as React.CSSProperties)
+      : {};
 
     return (
-      <Element ref={ref} {...elementProps}>
+      <Component
+        ref={ref}
+        className={classes}
+        href={href}
+        style={{ ...props.style, ...customStyles }}
+        {...props}
+      >
         {children}
-      </Element>
+      </Component>
     );
   }
 );

@@ -41,6 +41,9 @@
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0"
   },
+  "dependencies": {
+    "bttn": "file:.."
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3",
     "@storybook/addon-essentials": "^8.6.14",

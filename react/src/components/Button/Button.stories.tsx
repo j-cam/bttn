@@ -300,3 +300,26 @@ export const ModernThemes: Story = {
     </div>
   ),
 };
+
+// Glass variant
+export const Glass: Story = {
+  args: {
+    children: 'Glass Button',
+    variant: 'default',
+    theme: 'glass',
+  },
+};
+
+// Custom on-the-fly theming
+export const CustomOnTheFly: Story = {
+  args: {
+    children: 'Custom On-The-Fly Theme',
+    variant: 'pill',
+    customTheme: {
+      bg: '#ff5722',
+      bgActive: '#e64a19',
+      color: '#ffffff',
+      border: '#bf360c',
+    },
+  },
+};

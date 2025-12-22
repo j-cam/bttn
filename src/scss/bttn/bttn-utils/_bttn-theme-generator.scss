@@ -1,0 +1,35 @@
+@use "sass:map";
+
+/**
+ * bttn Theme Generator
+ * Generates a full suite of button classes for a custom theme.
+ *
+ * @param {String} $name - The name of the theme (e.g., "custom").
+ * @param {Map} $theme-map - A map containing colors for the theme.
+ */
+@mixin bttn-generate-theme($name, $theme-map) {
+    // Generate the standard button class for this theme
+    .bttn-#{$name} {
+        @include bttn($theme: $name);
+    }
+
+    // Generate the pill variant
+    .bttn-pill.bttn-#{$name} {
+        @include bttn-pill($theme: $name);
+    }
+
+    // Generate the stroke variant
+    .bttn-stroke.bttn-#{$name} {
+        @include bttn-stroke($theme: $name);
+    }
+
+    // Generate the ghost variant
+    .bttn-ghost.bttn-#{$name} {
+        @include bttn-ghost($theme: $name);
+    }
+
+    // Generate the surface variant
+    .bttn-surface.bttn-#{$name} {
+        @include bttn-surface($theme: $name);
+    }
+}

@@ -1,3 +1,5 @@
+import path from 'path';
+
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   stories: [
@@ -13,6 +15,11 @@ const config = {
     options: {},
   },
   viteFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      bttn: path.resolve(__dirname, '../../src/scss/bttn/import.scss'),
+    };
+
     // Set base path for GitHub Pages deployment
     if (process.env.NODE_ENV === 'production') {
       config.base = '/bttn/';

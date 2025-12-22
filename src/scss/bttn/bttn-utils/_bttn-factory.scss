@@ -24,10 +24,10 @@
   $icon-fill: map.get($map, icon-fill);
   $icon-fill-active: map.get($map, icon-fill-active);
 
-  // Apply core styles
-  background-color: $bg-color;
-  border-color: $border-color;
-  color: $font-color;
+  // Apply core styles using CSS variables with SCSS fallbacks
+  background-color: var(--bttn-bg, #{$bg-color});
+  border-color: var(--bttn-border, #{$border-color});
+  color: var(--bttn-color, #{$font-color});
   border-style: $bttn-border-style;
   border-width: $bttn-border-width;
   display: $bttn-display;
@@ -35,20 +35,20 @@
 
   // Icon logic
   .icon {
-    fill: if($icon-fill, $icon-fill, $font-color);
+    fill: var(--bttn-icon, #{if($icon-fill, $icon-fill, $font-color)});
   }
 
   // Interaction states
   &:active,
   &:focus,
   &:hover {
-    background-color: $bg-color-active;
-    border-color: $border-color-active;
-    color: $font-color-active;
+    background-color: var(--bttn-bg-active, #{$bg-color-active});
+    border-color: var(--bttn-border-active, #{$border-color-active});
+    color: var(--bttn-color-active, #{$font-color-active});
     outline: none;
 
     .icon {
-      fill: if($icon-fill-active, $icon-fill-active, $font-color-active);
+      fill: var(--bttn-icon-active, #{if($icon-fill-active, $icon-fill-active, $font-color-active)});
     }
   }
 
