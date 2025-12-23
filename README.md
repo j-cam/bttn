@@ -3,395 +3,86 @@
 > A modern button styling library for SCSS and React
 
 [![npm version](https://img.shields.io/npm/v/@j-cam/bttn.svg)](https://www.npmjs.com/package/@j-cam/bttn)
-[![bttn-react version](https://img.shields.io/npm/v/@j-cam/bttn-react.svg)](https://www.npmjs.com/package/@j-cam/bttn-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**bttn** provides consistent, themeable button styling for web applications. Available as both SCSS mixins and React components.
+**bttn** provides consistent, themeable button styling for web applications. Available as both SCSS mixins and React components in a single, unified package.
 
 **[📚 View Live Demo →](https://j-cam.github.io/bttn/?path=story/components-button--modern-themes)**
 
-## 📦 Packages
+## ✨ Features
 
-### SCSS Library (Core)
-Use SCSS mixins to create custom button styles in your stylesheets.
-
-**Features:**
 - 🎨 **CSS Variable First:** Fully themeable at runtime using CSS Custom Properties.
+- ⚛️ **Polymorphic React Component:** Use the `as` prop to render as any element (button, a, Link, etc.).
 - 🎭 **Multiple Variants:** default, stroke, ghost, pill, surface.
 - 📏 **Flexible Sizing:** sm, md, lg, xl, none.
 - 🌈 **Modern Themes:** primary, success, warning, danger, neon, royal, ocean, carbon, glass.
-- 🧩 **Factory Pattern:** Centralized logic for consistent styling across all variants.
-- 🚀 **Zero Dependencies:** Lightweight and fast.
-
-[View SCSS Documentation →](./docs/SCSS.md)
-
-### React Components (`@j-cam/bttn-react`)
-Lightweight React components with zero redundancy, consuming the core SCSS engine directly.
-
-**Features:**
-- ⚛️ **Polymorphic:** Use the `as` prop to render as any element (button, a, Link, etc.).
 - ✨ **On-The-Fly Theming:** Pass a `customTheme` object to style buttons dynamically.
-- 🪶 **Tiny Bundle:** ~2KB gzipped.
+- 🧩 **Factory Pattern:** Centralized logic for consistent styling across all variants.
+- 🚀 **Zero Redundancy:** React components consume the core SCSS engine directly.
 - 🎯 **TypeScript:** Full type safety for variants, sizes, and themes.
-- 🚀 **Framework Ready:** Works with Next.js, Vite, and Remix.
 
-[View React Documentation →](./react/README.md) | [Next.js Examples →](./react/NEXTJS_EXAMPLE.md)
-
-## � Quick Start
-
-### For React Projects
+## 📦 Installation
 
 ```bash
-npm install @j-cam/bttn-react
+npm install @j-cam/bttn
 ```
 
+## 🚀 Quick Start
+
+### React Usage
+
 ```tsx
-import { Button } from '@j-cam/bttn-react';
-import '@j-cam/bttn-react/styles.css';
+import { Button } from '@j-cam/bttn/react';
+import '@j-cam/bttn/styles.css';
 
 function App() {
   return (
-    <>
-      {/* Standard button */}
-      <Button variant="stroke" size="lg">Click me</Button>
-
-      {/* Polymorphic: Renders as an anchor because of href */}
-      <Button href="/docs" variant="ghost">Documentation</Button>
-
-      {/* Custom Theme: On-the-fly styling */}
-      <Button 
-        customTheme={{ bg: '#ff00ff', color: '#fff' }}
-        variant="pill"
-      >
-        Custom Color
-      </Button>
-    </>
+    <Button variant="pill" color="primary">
+      Click Me
+    </Button>
   );
 }
 ```
 
-### For SCSS Projects
-
-```bash
-npm install @j-cam/bttn --save-dev
-```
+### SCSS Usage
 
 ```scss
-@import 'node_modules/@j-cam/bttn/src/scss/bttn/import';
+@import "@j-cam/bttn";
 
-.my-button {
-  @include bttn($theme: 'primary', $size: 'lg');
-}
-```
-
-```html
-<!-- Standard buttons -->
-<button class="bttn">Default Button</button>
-<button class="bttn-sm">Small Button</button>
-<button class="bttn-lg">Large Button</button>
-<button class="bttn-xl">Extra Large Button</button>
-
-<!-- Stroke (outlined) buttons -->
-<button class="bttn-stroke">Stroke Button</button>
-<button class="bttn-stroke-sm">Small Stroke</button>
-
-<!-- Ghost (transparent) buttons -->
-<button class="bttn-ghost">Ghost Button</button>
-<button class="bttn-ghost-sm">Small Ghost</button>
-```
-
-### Using Mixins
-
-For more flexibility, use the mixins directly in your SCSS:
-
-```scss
 .my-custom-button {
-  @include bttn($size: lg, $theme: 'primary');
-}
-
-.my-outline-button {
-  @include bttn-stroke($size: sm, $theme: 'secondary');
-}
-
-.my-ghost-button {
-  @include bttn-ghost($theme: 'accent');
-}
-
-.my-pill-button {
-  @include bttn-pill($size: lg);
+  @include bttn-pill($theme: 'primary');
 }
 ```
 
-## 🎨 Button Types
-
-### Standard Buttons (`bttn`)
-Solid background buttons with hover effects.
-
-### Stroke Buttons (`bttn-stroke`)
-Outlined buttons with transparent backgrounds.
-
-### Ghost Buttons (`bttn-ghost`)
-Transparent buttons that fill on hover.
-
-### Pill Buttons (`bttn-pill`)
-Buttons with fully rounded corners.
-
-### Surface Buttons (`bttn-surface`)
-Minimalist buttons with no padding by default, perfect for cards or custom layouts.
-
-## 📐 Sizes
-
-bttn comes with five predefined sizes:
-
-- `sm` - Small buttons
-- `md` - Standard size (default)
-- `lg` - Large buttons
-- `xl` - Extra large buttons
-- `none` - Removes all internal padding (default for `surface` variant)
-
-## ⚙️ Configuration
-
-### CSS Variable Overrides (Runtime)
-
-Since v1.2.0, bttn uses CSS Custom Properties. You can override any setting at runtime without recompiling SCSS:
-
-```css
-:root {
-  --bttn-border-radius: 8px;
-  --bttn-font-family: 'Inter', sans-serif;
-  --bttn-transition-duration: 0.15s;
-}
-
-/* Override for a specific container */
-.dark-mode {
-  --bttn-bg: #000;
-  --bttn-color: #fff;
-}
-```
-
-### SCSS Variable Overrides (Build-time)
-
-Override the default settings before importing bttn:
-
-```scss
-// Your custom settings
-$bttn-namespace: 'btn';  // Change class prefix from .bttn to .btn
-$bttn-font-family: 'Inter', sans-serif;
-$bttn-font-size-base: 14px;
-$bttn-border-radius: 4px;
-$bttn-transition-duration: 0.2s;
-
-// Import bttn
-@import 'node_modules/bttn/src/scss/bttn/import';
-```
-
-### Available Configuration Variables
-
-```scss
-// Namespace for CSS classes
-$bttn-namespace: "bttn" !default;
-
-// Typography
-$bttn-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$bttn-font-size-base: 16px !default;
-$bttn-font-weight: normal !default;
-$bttn-letter-spacing: normal !default;
-$bttn-text-transform: uppercase !default;
-
-// Display
-$bttn-display: inline-block !default;
-
-// Border
-$bttn-border-width: 1px !default;
-$bttn-border-style: solid !default;
-$bttn-border-radius: 0 !default;
-
-// Animation
-$bttn-transition-duration: .3s !default;
-
-// Sizing - Small
-$bttn-padding-sm: 9px 13px !default;
-$bttn-font-size-sm: bttn-rem(12px) !default;
-$bttn-line-height-sm: bttn-lh(12px, 14px) !default;
-
-// Sizing - Default
-$bttn-padding: 16px 20px !default;
-$bttn-font-size: bttn-rem(15px) !default;
-$bttn-line-height: bttn-lh(15px, 17px) !default;
-
-// Sizing - Large
-$bttn-padding-lg: 23px 27px !default;
-$bttn-font-size-lg: bttn-rem(16px) !default;
-$bttn-line-height-lg: bttn-lh(16px, 18px) !default;
-
-// Sizing - Extra Large
-$bttn-padding-xl: 30px 34px !default;
-$bttn-font-size-xl: bttn-rem(18px) !default;
-$bttn-line-height-xl: bttn-lh(18px, 20px) !default;
-```
-
-### Creating Custom Themes
-
-Define your own color themes:
-
-```scss
-// Add to $map-bttn-themes before importing
-$map-bttn-themes: (
-  primary: (
-    bg-color: #007bff,
-    bg-color-active: #0056b3,
-    font-color: #ffffff,
-    font-color-active: #ffffff,
-  ),
-  secondary: (
-    bg-color: #6c757d,
-    bg-color-active: #545b62,
-    font-color: #ffffff,
-    font-color-active: #ffffff,
-  ),
-  success: (
-    bg-color: #28a745,
-    bg-color-active: #1e7e34,
-    font-color: #ffffff,
-    font-color-active: #ffffff,
-  )
-);
-
-@import 'node_modules/bttn/src/scss/bttn/import';
-```
-
-## 🌐 Browser Support
-
-bttn supports all modern browsers:
-
-- Chrome >= 60
-- Firefox ESR
-- Edge >= 79
-- Safari >= 12
-- iOS Safari >= 12
-- Android >= 6
-
-## 📚 API Reference
-
-### Mixins
-
-#### `bttn($size, $font-size, $theme)`
-Creates a standard solid button.
-
-**Parameters:**
-- `$size` (string): Button size - `sm`, `lg`, `xl`, or omit for default
-- `$font-size` (string): Font size variant - matches `$size` values
-- `$theme` (string): Theme name from `$map-bttn-themes`
-
-#### `bttn-stroke($size, $font-size, $theme)`
-Creates an outlined/stroke button.
-
-#### `bttn-ghost($size, $font-size, $theme)`
-Creates a ghost/transparent button.
-
-#### `bttn-pill($size, $font-size, $theme)`
-Creates a pill-shaped button with rounded corners.
-
-### React `Button` Component
-
-The React component is polymorphic and supports all SCSS variants and themes.
-
-**Props:**
-- `variant`: `'default' | 'stroke' | 'ghost' | 'pill' | 'surface'`
-- `size`: `'sm' | 'md' | 'lg' | 'xl' | 'none'`
-- `theme`: `'primary' | 'success' | 'warning' | 'danger' | 'neon' | 'royal' | 'ocean' | 'carbon' | 'glass'`
-- `customTheme`: An object for runtime color overrides (`bg`, `color`, `border`, etc.)
-- `as`: The HTML element or React component to render as (defaults to `button` or `a`)
-- `block`: Boolean for full-width buttons
-- `href`: Standard anchor href (automatically changes element to `a`)
-
-## 🏗️ Development
-
-### Prerequisites
-
-- Node.js >= 18.0.0
-- npm >= 9.0.0
-
-### Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/j-cam/bttn.git
-cd bttn
-
-# Install dependencies
-npm install
-
-# Build the project
-npm run build
-
-# Watch for changes during development
-npm run dev
-
-# Lint SCSS files
-npm run lint:scss
-
-# Format code
-npm run format
-```
-
-### Project Structure
-
-```
-bttn/
-├── src/
-│   └── scss/
-│       └── bttn/
-│           ├── bttn-themes/        # Color theme definitions
-│           ├── bttn-types/         # Button type mixins
-│           ├── bttn-utils/         # Factory and utility mixins
-│           ├── lib/                # Core functions
-│           ├── _bttn-settings.scss # SCSS default variables
-│           ├── _bttn-variables.scss # CSS Custom Properties manifest
-│           └── import.scss         # Main entry point
-├── react/
-│   ├── src/
-│   │   └── components/
-│   │       └── Button/             # Polymorphic React Button
-│   └── package.json
-├── docs/                           # Documentation and examples
-├── package.json
-└── README.md
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-### How to Contribute
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👤 Author
-
-**Jamie Campbell**
-
-- GitHub: [@j-cam](https://github.com/j-cam)
-
-## 🙏 Acknowledgments
-
-- Inspired by modern CSS frameworks and button libraries
-- Built with SCSS best practices in mind
-- Thanks to all contributors who have helped improve this library
-
-## 📮 Support
-
-- 📫 [Report Issues](https://github.com/j-cam/bttn/issues)
-- 💬 [Discussions](https://github.com/j-cam/bttn/discussions)
+[View SCSS Documentation →](./docs/SCSS.md) | [Next.js Examples →](./NEXTJS_EXAMPLE.md)
 
 ---
 
-Made with ❤️ by Jamie Campbell
+## 🎨 Variants & Themes
+
+### Variants
+- `default`: Solid background.
+- `stroke`: Outlined with border.
+- `ghost`: Transparent background, colored text.
+- `pill`: Rounded corners.
+- `surface`: Subtle background with border.
+
+### Themes
+- `primary`, `success`, `warning`, `danger`
+- `neon`, `royal`, `ocean`, `carbon`, `glass`
+
+## 🛠 Development
+
+```bash
+# Install dependencies
+npm install
+
+# Build everything (SCSS + React)
+npm run build
+
+# Run Storybook
+npm run storybook
+```
+
+## 📄 License
+MIT

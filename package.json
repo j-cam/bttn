@@ -1,12 +1,26 @@
 {
   "name": "@j-cam/bttn",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A modern SCSS library providing mixins, themes, and utilities for consistent button styling, part of the bttn button styling system for SCSS and React",
   "main": "src/scss/bttn/import.scss",
   "sass": "src/scss/bttn/import.scss",
   "style": "docs/assets/css/style.css",
+  "exports": {
+    ".": "./src/scss/bttn/import.scss",
+    "./react": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./docs/assets/css/style.css",
+    "./scss/*": "./src/scss/*"
+  },
   "files": [
     "src/scss",
+    "src/components",
+    "src/index.ts",
+    "src/types.d.ts",
+    "dist",
     "docs/assets/css",
     "LICENSE",
     "README.md"
@@ -14,19 +28,16 @@
   "scripts": {
     "build:sass": "sass src/scss/style.scss docs/assets/css/style.css --style=expanded --source-map",
     "build:postcss": "postcss docs/assets/css/style.css --use autoprefixer cssnano --output docs/assets/css/style.min.css --map",
-    "build": "npm run build:sass && npm run build:postcss",
+    "build:ts": "tsup --config tsup.config.ts",
+    "build": "npm run build:sass && npm run build:postcss && npm run build:ts",
     "watch:sass": "sass src/scss/style.scss docs/assets/css/style.css --watch --style=expanded --source-map",
     "serve": "browser-sync start --server docs --files 'docs/assets/css/*.css' 'docs/*.html'",
     "dev": "npm run build:sass && concurrently \"npm run watch:sass\" \"npm run serve\"",
-    "clean": "rimraf docs/assets/css docs/assets/maps",
+    "clean": "rimraf docs/assets/css docs/assets/maps dist",
     "lint:scss": "stylelint 'src/scss/**/*.scss'",
     "format": "prettier --write 'src/scss/**/*.scss'",
-    "storybook": "npm run storybook --prefix react",
-    "dev:react": "npm run dev --prefix react",
-    "build:react": "npm run build --prefix react",
-    "publish:scss": "npm run build && npm publish",
-    "publish:react": "npm run build:react && npm publish ./react",
-    "publish:all": "npm run publish:scss && npm run publish:react",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "test": "echo \"No tests specified yet\" && exit 0"
   },
   "repository": {
@@ -56,17 +67,36 @@
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
   },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-links": "^8.6.14",
+    "@storybook/addon-onboarding": "8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "@types/react": "^18.2.0",
     "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.3",
     "concurrently": "^9.1.0",
     "cssnano": "^7.0.6",
+    "esbuild-sass-plugin": "^3.3.1",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
+    "postcss-modules": "^6.0.1",
     "prettier": "^3.4.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rimraf": "^6.0.1",
     "sass": "^1.83.0",
-    "stylelint": "^16.12.0",
-    "stylelint-config-standard-scss": "^13.1.0"
+    "sass-loader": "^16.0.6",
+    "storybook": "^8.6.14",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vite": "^7.3.0"
   }
 }

@@ -13,11 +13,11 @@ export default defineConfig({
       type: 'local-css',
       loadPaths: [
         path.resolve(__dirname, 'node_modules'),
-        path.resolve(__dirname, '../src/scss'),
+        path.resolve(__dirname, 'src/scss'),
       ],
       importMapper: (url) => {
         if (url === 'bttn') {
-          return path.resolve(__dirname, '../src/scss/bttn/import.scss');
+          return path.resolve(__dirname, 'src/scss/bttn/import.scss');
         }
         return url;
       },
